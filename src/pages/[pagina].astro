@@ -1,0 +1,19 @@
+---
+// Páginas ainda não construídas: aviso honesto em vez de conteúdo inventado.
+import Base from '../layouts/Base.astro';
+import { paginas } from '../nav';
+export function getStaticPaths() {
+  return paginas.filter((p) => !p.pronto)
+    .map((p) => ({ params: { pagina: p.href.replace(/\/$/, '') }, props: { rotulo: p.rotulo } }));
+}
+const { rotulo } = Astro.props;
+const base = import.meta.env.BASE_URL.replace(/\/?$/, '/');
+---
+<Base titulo={rotulo}>
+  <section class="cm-wip ag-wrap">
+    <span class="ag-mono ag-sec-tag">Em construção</span>
+    <h1 class="ag-title ag-dot">{rotulo}</h1>
+    <p>Esta página está sendo preparada a partir do acervo de textos do CEMEF e será publicada em breve.</p>
+    <p><a class="ag-btn" href={base}>Voltar ao início</a></p>
+  </section>
+</Base>

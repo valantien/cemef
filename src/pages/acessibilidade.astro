@@ -1,0 +1,30 @@
+---
+// Declaração de Acessibilidade (PRD §5, página nova). Base: 03b1 e PRD §7.
+import Base from '../layouts/Base.astro';
+import Cabecalho from '../components/Cabecalho.astro';
+import { contato } from '../nav';
+---
+<Base titulo="Acessibilidade" descricao="Como o site do Centro de Memória da FAETEC busca ser acessível a todas as pessoas.">
+  <Cabecalho tag="Declaração de acessibilidade" lede="O CEMEF trabalha para que este site possa ser usado por todas as pessoas, com ou sem deficiência.">
+    <span class="ag-it">Acessibilidade</span>
+  </Cabecalho>
+  <section class="cm-bloco ag-wrap">
+    <div class="cm-dois">
+      <h2 class="ag-h2">O que já <span class="ag-it">oferecemos</span>.</h2>
+      <div class="cm-prosa">
+        <ul class="cm-lista">
+          <li>Intérprete de Libras virtual (VLibras) em todas as páginas.</li>
+          <li>Navegação completa pelo teclado, com foco visível e o atalho “Pular para o conteúdo”.</li>
+          <li>Textos alternativos nas imagens e títulos organizados para leitores de tela.</li>
+          <li>Contraste de cores no nível AA das diretrizes WCAG.</li>
+          <li>Animações desligadas para quem ativou a opção de reduzir movimento no sistema.</li>
+          <li>Vídeos que só carregam depois do clique, com título descritivo.</li>
+        </ul>
+        <h2>Ainda em andamento</h2>
+        <p>As fotos e os áudios com audiodescrição das peças do Museu Virtual voltarão a ser publicados em uma próxima atualização.</p>
+        <h2>Encontrou uma barreira?</h2>
+        <p>Escreva para <a class="cm-link" href={`mailto:${contato.email}`}>{contato.email}</a> contando em que página o problema aconteceu. Toda mensagem é lida pela equipe do CEMEF.</p>
+      </div>
+    </div>
+  </section>
+</Base>

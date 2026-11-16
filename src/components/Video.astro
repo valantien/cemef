@@ -1,0 +1,16 @@
+---
+// Vídeo do YouTube com fachada de clique (RF3): nada do YouTube carrega antes do clique (LGPD).
+// Player em youtube-nocookie.com. Sem JavaScript, o botão vira link para o YouTube.
+interface Props { id: string; titulo: string; seed?: number; }
+const { id, titulo, seed = 3 } = Astro.props;
+---
+<figure class="cm-video" data-video={id}>
+  <div class="cm-video-box">
+    <canvas class="cm-art" data-pal="night" data-seed={seed} aria-hidden="true"></canvas>
+    <a class="cm-video-play" href={`https://www.youtube.com/watch?v=${id}`} data-video-play>
+      <span class="cm-video-icon" aria-hidden="true"><svg viewBox="0 0 14 14"><path d="M3 1.5v11l9-5.5z" fill="currentColor"/></svg></span>
+      <span>Assistir: {titulo}</span>
+    </a>
+  </div>
+  <figcaption class="ag-mono">Vídeo no YouTube · o player só carrega depois do clique</figcaption>
+</figure>

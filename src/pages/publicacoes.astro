@@ -1,0 +1,85 @@
+---
+// Publicações (PRD §5). Fonte: scrapping/08-publicacoes.md. P12: organizadores (equipe do CEMEF) nomeados;
+// O conselho editorial do livro de 2017 foi removido a pedido do CEO (2026-11-16).
+import Base from '../layouts/Base.astro';
+import Cabecalho from '../components/Cabecalho.astro';
+import Acordeao from '../components/Acordeao.astro';
+const sumario2017 = [
+  'O complexo de Quintino e a atual ETER: Mais de cem anos de ensino.',
+  'Fotografia e a memória da escolarização de estudantes negros na FUNABEM de Quintino.',
+  'Imagens, discursos e narrativas dos professores do 1º segmento da escola estadual de ensino fundamental república (a antiga Escola Quinze de Novembro).',
+  'Escola de Teatro do CETEP - Quintino e seus caminhos artísticos.',
+  'Memória da Congregação de professores nos velhos papéis da Escola Normal da Corte.',
+  'ISERJ: Patrimônios em formação.',
+  'Alunos, mestres e objetos: representações imagéticas da reforma Fernando de Azevedo (1927-1930) na cultura material da Escola Profissional Visconde de Mauá.',
+  'A Escola Técnica Estadual Visconde de Mauá e a trajetória de sucesso de um ex-aluno negro: Nei Lopes.',
+  'Da Casa de São José à Escola Técnica Estadual Ferreira Vianna: História e Memória de uma instituição de ensino.',
+  'Instituto Ferreira Vianna: A agência de três diretores no enfrentamento dos maiores desafios da instituição na década de 1930.',
+  'Fogo nos Anos de Chumbo: Uma experiência no ambiente escolar do Colégio Industrial Henrique Lage.',
+  'Escola Técnica Juscelino Kubitschek: A memória viva.',
+  'E o Trem Andou: Memória da Escola Técnica Estadual de Transportes Engenheiro Silva Freire.',
+  'Personalidades de uma escola pioneira no ensino ferroviário no Brasil.',
+  'Reflexões sobre a educação na ferrovia através das correspondências de D. Maria Amélia Jacobina.',
+  'Centro de Memória da Escola Técnica Estadual Adolpho Bloch: Conhecendo o Banco de Imagens Darcy Ribeiro.',
+];
+const org2017 = ['Patrícia Freitas Hinsch Frias Barbosa', 'Isabella Paula Gaze', 'Adriana Valentim Beaklini', 'Maria das Graças Duque Estrada Silva'];
+const sumario2001 = [
+  'Apresentação - O desafio FAETEC.',
+  'As origens do projeto educacional brasileiro.',
+  'O ensino técnico no Brasil.',
+  '“Quem tem ofício, tem benefício” - A FAETEC tem o seu papel.',
+  'A experiência FAETEC.',
+  'A FAETEC e a missão de oferecer formação superior.',
+  'Educação Especial - Questões, conquistas e desafios.',
+];
+const org2001 = [
+  ['Mônica Piccolo Almeida', 'coordenadora'], ['Marcelo Coimbra Biar', 'coordenador adjunto'], ['José Antônio Miranda Sepúlveda', 'pesquisador'],
+  ['Luiz Felipe de Carvalho', 'pesquisador'], ['Maria Teresa da Silva Teles', 'pesquisadora'], ['Liana de Andrade Biar', 'auxiliar de pesquisa'],
+];
+---
+<Base titulo="Publicações" descricao="Livros organizados pelo Centro de Memória da FAETEC sobre a história da educação profissional no Rio de Janeiro.">
+  <Cabecalho tag="Livros do CEMEF" lede="Coletâneas que reúnem pesquisas sobre a história e a memória da educação profissional na Rede FAETEC.">
+    <span class="ag-it">Publicações</span>
+  </Cabecalho>
+
+  <section class="cm-bloco ag-wrap" aria-labelledby="livro-2017">
+    <div class="cm-dois">
+      <div>
+        <p class="cm-rotulo ag-mono">2017 · Ed. Multifoco</p>
+        <h2 class="ag-h2" id="livro-2017">História e Memória da Educação Profissional no <span class="ag-it">Rio de Janeiro</span>.</h2>
+      </div>
+      <div class="cm-prosa">
+        <p>Com farta e diversa massa documental, as análises feitas pelos autores do livro <em>“História e Memória da Educação Profissional no Rio de Janeiro: coletânea de artigos de autores da Rede FAETEC”</em> são convites instigantes aos que se interessam por temas relacionados às instituições educacionais e escolares, em especial, à educação profissional e tecnológica. Não obstante a atual celebração da pós-verdade e de museus que vislumbram o amanhã, os professores que assinam a obra se debruçam com desvelo sobre arquivos, memória, patrimônio e, em meio à diversidade, incentivam a organização de centros de memória e a preservação de acervos escolares, conferindo protagonismo à experiência dos sujeitos históricos.</p>
+        <p>O livro foi lançado na Bienal do Livro, em 6 de setembro de 2017, e na Rede FAETEC, em 17 de outubro de 2017.</p>
+        <p><strong>Organização:</strong> Centro de Memória da FAETEC. Comissão organizadora: {org2017.join(', ')}.</p>
+        <p class="cm-ref">CENTRO DE MEMÓRIA DA FAETEC (CEMEF – org.). <em>História e Memória da Educação Profissional no Rio de Janeiro – Coletânea de artigos de autores da Rede FAETEC.</em> Rio de Janeiro: Ed. Multifoco, 2017.</p>
+      </div>
+    </div>
+    <div class="ag-faq-list" style="margin-top:clamp(28px,4vw,56px)">
+      <Acordeao titulo={`Neste livro: ${sumario2017.length} artigos`}>
+        <p class="cm-sumario-rotulo ag-mono">Sumário do livro de 2017</p>
+        <ol class="cm-lista" style="list-style:decimal">{sumario2017.map((t) => <li>{t}</li>)}</ol>
+      </Acordeao>
+    </div>
+  </section>
+
+  <section class="cm-bloco ag-wrap cm-livro-2" aria-labelledby="livro-2001">
+    <div class="cm-dois">
+      <div>
+        <p class="cm-rotulo ag-mono">2001 · Imprint Gráfica e Editora</p>
+        <h2 class="ag-h2" id="livro-2001">A FAETEC e a Educação no Brasil: <span class="ag-it">Reflexão</span> e Transformação.</h2>
+      </div>
+      <div class="cm-prosa">
+        <p>Este livro reúne inquietações e questionamentos em busca de superação. É nossa convicção e desejo que ele seja uma ferramenta útil, subsídio importante para ampliar o debate sobre mudanças necessárias na educação do nosso país.</p>
+        <p><strong>Organização:</strong> Centro de Memória FAETEC. {org2001.map(([n, f]) => `${n} (${f})`).join(', ')}.</p>
+        <p class="cm-ref">CENTRO DE MEMÓRIA DA FAETEC (CEMEF – org.). <em>A FAETEC e a Educação no Brasil: Reflexão e transformação.</em> Rio de Janeiro: Imprint Gráfica e Editora, 2001.</p>
+      </div>
+    </div>
+    <div class="ag-faq-list" style="margin-top:clamp(28px,4vw,56px)">
+      <Acordeao titulo={`Neste livro: ${sumario2001.length} capítulos`}>
+        <p class="cm-sumario-rotulo ag-mono">Sumário do livro de 2001</p>
+        <ol class="cm-lista" style="list-style:decimal">{sumario2001.map((t) => <li>{t}</li>)}</ol>
+      </Acordeao>
+    </div>
+  </section>
+</Base>

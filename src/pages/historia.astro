@@ -1,0 +1,81 @@
+---
+// História Institucional (PRD §5). Fonte: scrapping/02-historia-institucional.md e 03a.
+// Correções do CEO (PRD §8.1): C1 subordinação, C5 SAM, C6 CEI, C7 1899.
+// P12: só nomes da equipe do CEMEF e de autores; demais pessoas pela função.
+import Base from '../layouts/Base.astro';
+import Cabecalho from '../components/Cabecalho.astro';
+const marcos = [
+  { ano: '1899', titulo: 'Escola XV de Novembro', texto: 'Fundada para atender crianças, adolescentes e jovens pobres com o ensino de ofícios.' },
+  { ano: '1941', titulo: 'SAM', texto: 'A Escola XV passa a ser vinculada ao Serviço de Assistência ao Menor, até 1964.' },
+  { ano: '1964', titulo: 'FUNABEM', texto: 'Vinculação à Fundação Nacional pelo Bem-Estar do Menor, até 1990.' },
+  { ano: '1990', titulo: 'ECA e CBIA', texto: 'Aprovado o Estatuto da Criança e do Adolescente; a FUNABEM é extinta e a Escola XV passa ao CBIA.' },
+  { ano: '1993', titulo: 'Convênio', texto: 'Terreno, patrimônio e pessoal da extinta CBIA/FUNABEM passam ao Governo do Estado do Rio de Janeiro.' },
+  { ano: '1995', titulo: 'CEI', texto: 'O Decreto nº 21.752 cria o Centro de Educação Integrada, escola profissionalizante de nível médio.' },
+  { ano: '1996', titulo: 'Escolas técnicas', texto: 'A FAEP passa à Secretaria de Ciência e Tecnologia e recebe sete escolas técnicas estaduais.' },
+  { ano: '1997', titulo: 'FAETEC', texto: 'A Lei nº 2.735 transforma a FAEP na Fundação de Apoio à Escola Técnica.' },
+  { ano: '2000', titulo: 'CETEP', texto: 'O CEI se torna Centro de Educação Tecnológica e Profissionalizante, levado a várias regiões do Estado.' },
+  { ano: '2002', titulo: 'CEMEF', texto: 'A Portaria FAETEC nº 101 cria o Centro de Memória da FAETEC.' },
+];
+---
+<Base titulo="História" descricao="Da Escola XV de Novembro, fundada em 1899, à criação da FAETEC e do Centro de Memória da FAETEC.">
+  <Cabecalho tag="Desde 1899" lede="Da Escola XV de Novembro à Rede FAETEC: a origem de uma rede pública de educação profissional.">
+    Nossa <span class="ag-it">história</span>
+  </Cabecalho>
+
+  <section class="ag-steps ag-wrap" aria-labelledby="linha-titulo" style="padding-top:0">
+    <h2 class="ag-sr" id="linha-titulo">Linha do tempo</h2>
+    <div class="ag-steps-track">
+      <span class="ag-steps-line" aria-hidden="true"></span>
+      <ol class="ag-step-list">
+        {marcos.map((m) => (
+          <li class="ag-step">
+            <span class="ag-step-node" aria-hidden="true"></span>
+            <p class="ag-step-when ag-mono">{m.ano}</p>
+            <h3 class="ag-step-title">{m.titulo}</h3>
+            <p class="ag-step-text">{m.texto}</p>
+          </li>
+        ))}
+      </ol>
+    </div>
+  </section>
+
+  <section class="cm-bloco ag-wrap" aria-labelledby="origem-titulo">
+    <div class="cm-dois">
+      <h2 class="ag-h2" id="origem-titulo">A origem da <span class="ag-it">FAETEC</span>.</h2>
+      <div class="cm-prosa">
+        <p>A origem histórica da FAETEC se vincula, em seu primeiro momento, à história da Escola XV de Novembro. Fundada em 1899, a Escola XV tinha o objetivo de atender ao público de crianças, adolescentes e jovens pobres em situação de vulnerabilidade, que deveriam receber uma educação voltada para o aprendizado de algum tipo de ofício e para a correção do comportamento considerado desviante pelas autoridades e pela sociedade de maneira geral.</p>
+        <p>No decorrer dos anos e dos governos, a Escola XV esteve vinculada ao Serviço de Assistência ao Menor (SAM), de 1941 até 1964, e à Fundação Nacional pelo Bem-Estar do Menor (FUNABEM), de 1964 até 1990. SAM e FUNABEM foram instituições que receberam muitas críticas da opinião pública e de especialistas da educação em relação à eficácia do seu atendimento. Ao final dos anos 1980, consolidou-se no Brasil uma conjuntura política favorável a uma nova legislação para a infância e a adolescência, e o Estatuto da Criança e do Adolescente (ECA) foi aprovado em 1990, depois de intensa pressão dos movimentos sociais.</p>
+        <p>Nesse mesmo ano, o Centro Brasileiro pela Infância e Adolescência (CBIA) foi criado e a FUNABEM foi extinta, o que resultou na incorporação da Escola XV pelo CBIA, vinculado ao Ministério da Ação Social. O governo federal deixou de ter a obrigação de prestar atendimento às crianças e adolescentes em situação de risco, e essa responsabilidade passou aos municípios e aos estados. No Rio de Janeiro, essa transição se relaciona com a extinção do CBIA e a criação do Centro de Educação Integrada (CEI), ambos em 1995.</p>
+
+        <h2>Do CEI à FAETEC</h2>
+        <p>O segundo momento da origem da FAETEC remonta ao convênio firmado entre o Governo Federal e o Governo do Estado do Rio de Janeiro em 10/08/1993, que regulamentou a transferência do terreno, do patrimônio e do pessoal da extinta CBIA/FUNABEM para o âmbito estadual. Essa estrutura serviu de base para o Decreto nº 21.752, de 8/11/1995, que criou a escola profissionalizante de nível médio denominada Centro de Educação Integrada (CEI).</p>
+        <p>O CEI tinha como um de seus objetivos preparar os jovens estudantes oriundos das escolas regulares para a prática produtiva e o exercício da cidadania. O projeto se sustentava em três pilares: escolaridade, ludicidade e trabalho.</p>
+        <p>Com o êxito do CEI, o Decreto nº 22.011, de 09/02/1996, transferiu a Fundação de Apoio à Escola Pública do Estado do Rio de Janeiro (FAEP) da Secretaria Estadual de Educação para a Secretaria Estadual de Ciência e Tecnologia, com o objetivo de reestruturar as escolas técnicas estaduais. Sete escolas técnicas tradicionais foram transferidas e formaram o primeiro grupo de unidades da futura Rede FAETEC: Ferreira Viana, Visconde de Mauá, Juscelino Kubitschek, João Luiz do Nascimento, João Barcelos, Oscar Tenório e Henrique Lage.</p>
+        <p>O passo seguinte foi a criação de uma nova fundação para gerenciar a Rede de Ensino Técnico do Estado do Rio de Janeiro: a antiga FAEP foi transformada em Fundação de Apoio à Escola Técnica (FAETEC) pela Lei nº 2.735, de 10/06/1997.</p>
+        <p>Em 2000, o CEI foi transformado em Centro de Educação Tecnológica e Profissionalizante (CETEP); outras escolas técnicas estaduais foram incorporadas à Rede FAETEC e o projeto CETEP foi ampliado para várias regiões do Estado. A década de 2000 também foi marcada pela criação dos Institutos Superiores (ISEs) e do Centro de Vocação Tecnológica (CVT), voltado para a capacitação tecnológica da população.</p>
+        <p>O surgimento da FAETEC possibilitou a criação de uma Rede de Ensino Técnico e Profissionalizante, com papel importante na expansão do ensino tecnológico e profissionalizante no Estado do Rio de Janeiro.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="cm-bloco ag-wrap" aria-labelledby="cemef-titulo">
+    <div class="cm-dois">
+      <h2 class="ag-h2" id="cemef-titulo">O <span class="ag-it">CEMEF</span>.</h2>
+      <div class="cm-prosa">
+        <p>O Centro de Memória da FAETEC foi criado pela Portaria FAETEC nº 101, de 15/05/2002 (Diário Oficial de 24/05/2002, p. 21-22). Em maio de 2011, foi reestruturado e subordinado à Vice-Presidência. A partir da Portaria PR/FAETEC nº 552, de 22/11/2018, passou a ser subordinado à Diretoria de Educação Superior (DESUP). Hoje, o CEMEF é ligado à Presidência da FAETEC.</p>
+        <p>O CEMEF tem como meta a formulação e a execução de uma política institucional que promova a cultura de preservação do patrimônio escolar e possibilite a salvaguarda dos documentos que compõem os acervos das unidades de ensino. Atua no estabelecimento e na execução de políticas e projetos de guarda, preservação, conservação, organização, divulgação, pesquisa e estudo de fontes históricas sobre a memória e a história institucional e educacional da Rede FAETEC.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="cm-bloco ag-wrap" aria-labelledby="bib-titulo">
+    <div class="cm-dois">
+      <h2 class="ag-h2" id="bib-titulo"><span class="ag-it">Bibliografia</span>.</h2>
+      <div class="cm-prosa">
+        <p class="cm-ref">CENTRO DE MEMÓRIA FAETEC (Org.). <i>A FAETEC e a Educação no Brasil: Reflexão e Transformação</i>. Rio de Janeiro: s.n., 2001.</p>
+        <p class="cm-ref">GOLDSCHMIDT, Ronaldo Ribeiro et al. (Orgs.). <i>Educação Superior da FAETEC: muito além da sala de aula – Conquistas, desafios e perspectivas</i>. Rio de Janeiro: s.n., 2011.</p>
+        <p class="cm-ref">SIQUEIRA, Patricia Amaral. <i>Do inferno à cobiça</i>. Dissertação (Mestrado). Rio de Janeiro: UERJ/IFCH, 1999.</p>
+      </div>
+    </div>
+  </section>
+</Base>

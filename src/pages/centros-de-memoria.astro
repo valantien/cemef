@@ -1,0 +1,98 @@
+---
+// Centros de Memória das Unidades (PRD §5, RF5). Fonte: scrapping/10-centros-de-memoria-das-unidades.md.
+// Regimento transcrito (Arts. 45–48) + link para o PDF no Google Drive. Histórico no passado (C9).
+import Base from '../layouts/Base.astro';
+import Cabecalho from '../components/Cabecalho.astro';
+import Acordeao from '../components/Acordeao.astro';
+const atribuicoes = [
+  'participar da discussão e elaboração coletiva do Projeto Político Pedagógico da UE;',
+  'promover a cultura de preservação da memória institucional junto à comunidade escolar;',
+  'atuar em consonância com as diretrizes estabelecidas pelo CEMEF e pela FAETEC;',
+  'participar das reuniões e outras atividades promovidas pelo CEMEF;',
+  'coletar, identificar, organizar e analisar fontes documentais e iconográficas, tendo como ponto de partida quatro núcleos básicos de referências: os arquivos das unidades escolares, arquivos das Secretarias de Governo, arquivos públicos e coleções particulares (professores e ex-professores, ex-Diretores e Coordenadores, alunos e ex-alunos, funcionários, etc.);',
+  'analisar a contextualização histórica da UE, investigando suas origens, influências e implicações políticas, ideológicas, sociais, econômicas e culturais;',
+  'investigar as transformações tecnológicas e suas repercussões na unidade de ensino;',
+  'atuar junto ao responsável pelo patrimônio da UE, buscando identificar e cadastrar mobiliários, objetos, equipamentos e maquinários de valor histórico;',
+  'organizar e promover eventos, como: seminários e exposições voltados à preservação da memória da unidade de ensino;',
+  'organizar uma hemeroteca com notícias de jornais e revistas sobre a unidade de ensino;',
+  'coletar e organizar arquivo fotográfico e audiovisual relativos às aulas, exposições curriculares, feiras técnicas, seminários, formaturas, entre outros;',
+  'coletar e organizar um banco de história oral a partir de depoimentos de ex-alunos, ex-professores, ex-diretores/coordenadores e demais profissionais;',
+  'coletar e organizar um acervo de materiais didáticos relativos às disciplinas e aos professores, como: livros, diários, apostilas, fichas cadernos, apontamentos, entre outros;',
+  'coletar e organizar acervo referente aos alunos: documentação do grêmio, cadernos, fotografias, convites de formatura, diplomas, carteiras estudantis, etc.',
+  'coletar e organizar o acervo dos projetos desenvolvidos por alunos e professores que foram apresentados e/ou premiados em feiras e exposições;',
+  'proporcionar condições de conservação ao acervo coletado compatíveis com as normas adequadas em termos de higienização e acondicionamento;',
+  'montar exposições abertas à visitação pública com o material coletado.',
+];
+const romanos = ['I','II','III','IV','V','VI','VII','VIII','IX','X','XI','XII','XIII','XIV','XV','XVI','XVII'];
+const historico = [
+  ['—', 'Visitas técnicas aos centros de memória das unidades, para avaliar cada ambiente de guarda dos acervos e orientar as equipes.'],
+  ['2017', 'Lançamento do Projeto Pesquisadores da FAETEC e do Banco de Pesquisas Acadêmicas, em setembro.'],
+  ['2017', 'Apresentação de proposta para incluir a área de pesquisa “Memória e Patrimônio Histórico-Educativo” na Política de Pesquisa e Extensão da Rede FAETEC, sob a coordenação do CEMEF, em outubro.'],
+  ['—', 'Criação de três linhas de pesquisa: História das Políticas da Educação Profissional no Rio de Janeiro; História e Memória das Instituições e Sujeitos Escolares; Educação Patrimonial e Conservação de Acervos.'],
+  ['—', 'Transferência do LACON do prédio do antigo CIAM para as salas do antigo CRI. A mudança ampliou o espaço, permitindo oficinas, capacitações e cursos, e adequou o local para receber a documentação da FUNABEM.'],
+  ['2018', 'Socorro emergencial aos processos molhados pela enchente de 14 de fevereiro, tanto do Arquivo Corrente da ASJUR quanto da Escola de Teatro.'],
+  ['—', 'Transferência dos prontuários dos alunos da FUNABEM da ETER para o LACON.'],
+  ['2018', 'Preparação do LACON e gestão dos cursos PRONATEC de Auxiliar de Conservação de Acervos e Auxiliar de Biblioteca, realizados de 18 de junho a 26 de setembro.'],
+  ['2018', 'Edital de chamada para o volume 2 do livro História e Memória da Educação Profissional no Rio de Janeiro, em agosto.'],
+  ['—', 'Desenvolvimento do banco de dados para catalogação do acervo do CEMEF, em parceria com o Departamento de Gestão da Informação (DGI).'],
+  ['2018', 'Participação, a partir de outubro, em reuniões no APERJ para elaborar novos instrumentos de gestão de documentos: tabela de temporalidade e plano de classificação.'],
+  ['2018', 'Retomada do projeto “Se Essa Rua Fosse Minha” na FAETEC Santa Cruz e na FAETEC Marechal Hermes, com a inauguração das ruas da FAETEC Santa Cruz em 18 de dezembro.'],
+  ['2018', 'Socorro emergencial, a pedido da direção da ETER, a um arquivo intermediário da unidade infestado por pombos, com chamado ao Centro de Zoonoses e visita sanitária em 17 de dezembro.'],
+  ['—', 'Visitas técnicas e participação em eventos comemorativos dos centros de memória das unidades de ensino.'],
+  ['—', 'Análise e encaminhamento das solicitações de autorização de pesquisa na Rede FAETEC.'],
+];
+---
+<Base titulo="Centros de Memória" descricao="Centros de memória das unidades da Rede FAETEC: regimento, tabela de temporalidade e histórico de atividades.">
+  <Cabecalho tag="Unidades da Rede" lede="Cada unidade de ensino pode ter seu próprio centro de memória, seguindo as diretrizes do CEMEF.">
+    Centros de <span class="ag-it">memória</span>
+  </Cabecalho>
+
+  <section class="cm-bloco ag-wrap" aria-labelledby="reg-titulo">
+    <div class="cm-dois">
+      <div>
+        <p class="cm-rotulo ag-mono">Título II · Capítulo I · Seção III</p>
+        <h2 class="ag-h2" id="reg-titulo">Regimento <span class="ag-it">FAETEC</span>.</h2>
+      </div>
+      <div class="cm-prosa">
+        <p>O Regimento Norteador das Unidades Escolares da Educação Básica/Técnica da Rede FAETEC tem como objetivo nortear as diretrizes administrativo-pedagógicas e orientar as práticas que permeiam o cotidiano escolar. A Seção III trata do Centro de Memória.</p>
+        <p><a class="cm-link" href="https://drive.google.com/file/d/1ASAe-C6Z5-IDQbRIJV3Iv0th92TEsIuV/view">Ler o Regimento completo (Google Drive)</a></p>
+      </div>
+    </div>
+    <div class="ag-faq-list" style="margin-top:clamp(28px,4vw,56px)">
+      <Acordeao titulo="Art. 45 · Acervo histórico escolar">
+        <p>Será de responsabilidade da UE promover a cultura escolar de preservação da memória e história institucional por meio da conservação de seu acervo histórico.</p>
+        <p>Parágrafo único. Entende-se por acervo histórico escolar: arquivos escolares, legislação, documentos oficiais, mobiliário, equipamentos, memórias de docentes, funcionários e ex-alunos recuperadas através de entrevistas e questionários, livros didáticos, diários de classes, currículo e programa das disciplinas, cadernos dos alunos, materiais didáticos, jornais da época, fotografias e demais fontes que, tratadas e preservadas, constituirão o acervo da memória dessa instituição escolar.</p>
+      </Acordeao>
+      <Acordeao titulo="Art. 46 · O Centro de Memória da unidade">
+        <p>O Centro de Memória é o setor da unidade de ensino responsável pelo desenvolvimento de ações de pesquisa, preservação, guarda e divulgação de sua história.</p>
+        <p>§1º. O Centro de Memória de UE seguirá as diretrizes do Centro de Memória da FAETEC (CEMEF).</p>
+        <p>§2º. Para constituição do Centro de Memória, a UE deverá submeter, anualmente, o projeto para a avaliação do CEMEF, que, após aprovado, encaminhará à Diretoria Pedagógica a qual a UE está vinculada para as devidas providências.</p>
+      </Acordeao>
+      <Acordeao titulo="Art. 47 · Composição">
+        <p>O Centro de Memória das UEs será composto por um profissional de nível superior com disponibilidade total ou parcial da sua carga horária, indicado pela direção da U.E., desde que não gere carência.</p>
+      </Acordeao>
+      <Acordeao titulo="Art. 48 · Atribuições">
+        <p>O Centro de Memória terá as seguintes atribuições:</p>
+        <ol class="cm-lista cm-incisos">{atribuicoes.map((t, i) => <li><span class="ag-mono">{romanos[i]}</span> {t}</li>)}</ol>
+      </Acordeao>
+    </div>
+  </section>
+
+  <section class="cm-bloco ag-wrap" aria-labelledby="tt-titulo">
+    <div class="cm-dois">
+      <h2 class="ag-h2" id="tt-titulo">Tabela de <span class="ag-it">temporalidade</span>.</h2>
+      <div class="cm-prosa">
+        <p>A Tabela de Temporalidade de Documentos da Fundação de Apoio à Escola Técnica (FAETEC) define, para cada atividade, a tipologia documental, a classificação de acesso, os prazos de guarda nas fases corrente e intermediária e a destinação final: eliminação ou guarda permanente, com os fundamentos legais de cada caso.</p>
+        <p>Os documentos são organizados por competência, função e atividade. Um exemplo: na competência 45, Planejamento e Gestão da Política de Educação Profissional e Superior, a função 45.01 (Gestão da Educação Técnica, Tecnológica, Qualificação Profissional e Superior) inclui a atividade 45.01.01, Acompanhar medidas educativas e disciplinares.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="cm-bloco ag-wrap" aria-labelledby="hist-titulo">
+    <div class="ag-sec-head">
+      <h2 class="ag-h2" id="hist-titulo">Atividades do CEMEF junto às <span class="ag-it">unidades</span>.</h2>
+      <p class="ag-sec-lede">Principais ações registradas, sobretudo entre 2017 e 2018.</p>
+    </div>
+    <ul class="cm-log">{historico.map(([a, t]) => <li><span>{a}</span>{t}</li>)}</ul>
+  </section>
+</Base>

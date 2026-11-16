@@ -1,0 +1,259 @@
+/* Ajustes do CEMEF sobre o AGENTIC (agentic@1.0.0). Usa só tokens --ag-*. */
+
+/* Link "Pular para o conteúdo" (WCAG 2.4.1) */
+.cm-skip {
+  position: absolute; left: var(--ag-gutter); top: -100px; z-index: 100;
+  padding: 10px 16px; border-radius: var(--ag-r-pill);
+  background: var(--ag-ink); color: var(--ag-bg); font-weight: 500;
+}
+.cm-skip:focus { top: 12px; }
+
+/* Com 10 seções, o menu fica sempre no painel (em qualquer largura). */
+.ag .ag-site-header { position: sticky; top: 0; }
+.ag .ag-menu-btn { display: grid; }
+.ag .ag-nav {
+  position: absolute; top: 100%; right: var(--ag-frame); left: auto;
+  width: min(420px, calc(100vw - 2 * var(--ag-frame)));
+  flex-direction: column; gap: 4px; padding: 20px 24px 28px;
+  background: var(--ag-panel); color: var(--ag-on-panel);
+  border-radius: var(--ag-r-lg); font-size: 26px; letter-spacing: -.04em;
+  opacity: 0; visibility: hidden; transform: translateY(-10px);
+  transition: opacity var(--ag-dur) var(--ag-ease), transform var(--ag-dur) var(--ag-ease), visibility 0s .4s;
+}
+.ag .ag-is-open .ag-nav {
+  opacity: 1; visibility: visible; transform: none;
+  transition: opacity var(--ag-dur) var(--ag-ease), transform var(--ag-dur) var(--ag-ease);
+}
+.ag .ag-nav :focus-visible { outline-color: var(--ag-on-panel); }
+.ag .ag-nav [aria-current="page"] { color: var(--ag-accent); }
+.ag .cm-breve { font-family: var(--ag-font-mono); font-size: var(--ag-label); letter-spacing: .06em; text-transform: uppercase; color: var(--ag-panel-muted); margin-left: 8px; }
+
+/* Arte decorativa (substitui o motor do AGENTIC, que não foi preservado no specimen salvo) */
+.ag canvas.cm-art { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
+
+/* Hero: título acessível dentro do wordmark */
+.ag .cm-hero-h1 { margin: 0; }
+
+/* Destaques (seções do site) */
+.ag .cm-sec { padding-block: var(--ag-space) 0; }
+.ag .cm-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr)); gap: 10px; margin-top: clamp(28px, 4vw, 56px); }
+.ag .cm-card {
+  position: relative; display: flex; flex-direction: column; justify-content: space-between; gap: 40px;
+  min-height: 220px; padding: 24px; border-radius: var(--ag-r-lg); background: var(--ag-surface);
+  transition: background var(--ag-dur) var(--ag-ease);
+}
+.ag .cm-card h3 { font-family: var(--ag-font-display); font-size: var(--ag-card); font-weight: 600; letter-spacing: -.045em; line-height: 1; margin: 0; }
+.ag .cm-card p { color: var(--ag-muted); font-size: var(--ag-small); margin: 0; }
+.ag .cm-card .ag-mono { color: var(--ag-muted); }
+@media (hover: hover) { .ag .cm-card:hover { background: var(--ag-accent); } .ag .cm-card:hover p, .ag .cm-card:hover .ag-mono { color: var(--ag-ink); } }
+
+/* Números */
+.ag .cm-figs { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr)); gap: 10px; margin-top: clamp(28px, 4vw, 56px); }
+.ag .cm-fig { padding: 24px; border-top: var(--ag-hairline) solid var(--ag-line); }
+.ag .cm-fig b { display: block; font-family: var(--ag-font-display); font-size: var(--ag-score); font-weight: 600; letter-spacing: -.058em; line-height: .9; }
+.ag .cm-fig span { display: block; margin-top: 14px; color: var(--ag-muted); max-width: 28ch; }
+
+/* Página em construção */
+.ag .cm-wip { padding: var(--ag-space) 0; }
+.ag .cm-wip p { max-width: 60ch; color: var(--ag-muted); margin-top: 24px; }
+
+/* Rodapé: endereço */
+.ag .ag-foot-col p { margin: 0; }
+.ag .ag-about-photo, .ag .cm-arte-box { position: relative; }
+.ag .ag-site-header { z-index: 70; }
+.ag .cm-cards { grid-template-columns: repeat(auto-fit, minmax(min(100%, 340px), 1fr)); }
+
+/* Cor de destaque do CEMEF: azul FAETEC oficial #006CA8 (logo FAETEC enviado pelo CEO, 2026-11-16),
+   no lugar do lime do AGENTIC. Contrastes (WCAG):
+   - texto claro sobre o azul: --ag-on-panel 4,7:1 e branco 5,7:1 (AA) -> botões e cartões ficam com texto claro no hover;
+   - texto preto sobre o azul: 3,45:1 (reprovado para texto normal) -> nunca usar;
+   - azul sobre o papel: 4,55:1 (AA) -> pode ser cor de texto e link;
+   - azul sobre o painel escuro: 3,5:1 -> só em texto grande (título "FAETEC" do topo), nunca em texto pequeno.
+   Referências guardadas: terracota #C65D3B (D16) e azul do degradê do logo do CEMEF #1384C3 (D17). */
+:root {
+  --ag-accent: #006CA8;
+  --ag-ember: #006CA8;
+  --ag-bg: #DDD6C8; /* Aprovado pelo CEO 2026-11-16: fundo mais escuro (original do AGENTIC #EBE6DC) */
+  --ag-surface: #EBE6DC; /* Aprovado pelo CEO 2026-11-16: cartões mais escuros (original #F7F4EE) */
+}
+@media (hover: hover) {
+  .ag .ag-btn:hover { color: var(--ag-on-panel); }
+  .ag .cm-card:hover, .ag .cm-card:hover p, .ag .cm-card:hover .ag-mono { color: var(--ag-on-panel); }
+}
+.ag ::selection { color: #fff; }
+
+/* Logo FAETEC (arquivo oficial enviado pelo CEO) no lugar da palavra no topo da Início.
+   Azul #006CA8 sobre o painel escuro: 3,5:1, acima do mínimo de 3:1 para elementos gráficos (WCAG 1.4.11). */
+.ag .ag-hero-studio { align-items: center; }
+.ag .cm-logo-faetec { display: inline-block; height: .78em; width: auto; margin-left: .12em; vertical-align: -.08em; }
+
+/* Páginas internas */
+.ag .cm-page-head { padding-top: clamp(48px, 7vw, 112px); }
+.ag .cm-prosa { max-width: 68ch; }
+.ag .cm-prosa p { margin: 0 0 1.1em; }
+.ag .cm-prosa h2 { font-family: var(--ag-font-display); font-size: var(--ag-card); font-weight: 600; letter-spacing: -.045em; line-height: 1.05; margin: 2em 0 .6em; }
+.ag .cm-dois { display: grid; grid-template-columns: minmax(0, 4fr) minmax(0, 8fr); gap: clamp(28px, 5vw, 88px); }
+@media (max-width: 760px) { .ag .cm-dois { grid-template-columns: 1fr; } }
+.ag .cm-bloco { padding-block: 0 var(--ag-space); }
+.ag .cm-ref { padding-left: 2em; text-indent: -2em; color: var(--ag-muted); font-size: var(--ag-small); }
+.ag .cm-link { color: var(--ag-ember); text-decoration: underline; text-underline-offset: 3px; }
+
+/* Vídeo com fachada de clique */
+.ag .cm-video { margin: 0; }
+.ag .cm-video-box { position: relative; aspect-ratio: 16 / 9; border-radius: var(--ag-r-lg); overflow: hidden; background: var(--ag-panel); }
+.ag .cm-video-box iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+.ag .cm-video-play {
+  position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); z-index: 1;
+  display: inline-flex; align-items: center; gap: 14px; max-width: calc(100% - 40px);
+  padding: 10px 22px 10px 10px; border-radius: var(--ag-r-pill);
+  background: var(--ag-on-panel); color: var(--ag-ink); font-weight: 500; font-size: var(--ag-small);
+  transition: background var(--ag-dur) var(--ag-ease), color var(--ag-dur) var(--ag-ease);
+}
+.ag .cm-video-icon { flex: none; display: grid; place-items: center; width: 44px; height: 44px; border-radius: 50%; background: var(--ag-accent); color: #fff; }
+.ag .cm-video-icon svg { width: 14px; height: 14px; margin-left: 3px; }
+@media (hover: hover) { .ag .cm-video-play:hover { background: var(--ag-accent); color: #fff; } }
+.ag .cm-video-play:focus-visible { outline-color: var(--ag-on-panel); }
+.ag .cm-video figcaption { margin-top: 10px; color: var(--ag-muted); font-size: var(--ag-label); }
+
+/* Acordeão sem JavaScript: aberto */
+html:not(.js) .ag [data-ag-acc-panel] { grid-template-rows: 1fr; }
+.ag .cm-acc-lista { border-top: var(--ag-hairline) solid var(--ag-line); }
+
+/* Lista de créditos */
+.ag .cm-creditos dt { font-family: var(--ag-font-mono); font-size: var(--ag-label); text-transform: uppercase; letter-spacing: .06em; color: var(--ag-muted); margin-top: 1.4em; }
+.ag .cm-creditos dd { margin: .3em 0 0; }
+
+/* Cartões de exposição */
+.ag .cm-expo { display: grid; gap: 10px; grid-template-columns: repeat(auto-fit, minmax(min(100%, 420px), 1fr)); }
+.ag .cm-expo a { display: flex; flex-direction: column; border-radius: var(--ag-r-lg); background: var(--ag-surface); overflow: hidden; }
+.ag .cm-expo .cm-arte-box { aspect-ratio: 16 / 9; }
+.ag .cm-expo-meta { padding: 24px; display: grid; gap: 10px; }
+.ag .cm-expo-meta h2 { font-family: var(--ag-font-display); font-size: var(--ag-card); font-weight: 600; letter-spacing: -.045em; line-height: 1.05; margin: 0; }
+.ag .cm-expo-meta p { margin: 0; color: var(--ag-muted); }
+@media (hover: hover) { .ag .cm-expo a:hover h2 { text-decoration: underline; text-underline-offset: 4px; } }
+.ag .cm-card--texto { justify-content: flex-start; gap: 24px; min-height: 0; }
+@media (hover: hover) { .ag .cm-card--texto:hover { background: var(--ag-surface); color: var(--ag-ink); } .ag .cm-card--texto:hover p, .ag .cm-card--texto:hover .ag-mono { color: var(--ag-muted); } }
+.ag .cm-lista { margin: 0 0 1.1em; padding-left: 1.2em; list-style: disc; }
+.ag .cm-lista li { margin: .35em 0; }
+.ag .cm-rotulo { color: var(--ag-muted); margin: 0 0 14px; font-size: var(--ag-label); }
+.ag .cm-email { font-size: clamp(22px, 2.4vw, 34px); overflow-wrap: anywhere; }
+.ag .cm-endereco { font-style: normal; font-size: var(--ag-lede); line-height: 1.3; margin-bottom: 18px; }
+
+/* Pesquisadores */
+.ag .cm-pessoas { display: grid; gap: 10px; grid-template-columns: repeat(auto-fit, minmax(min(100%, 480px), 1fr)); }
+.ag .cm-pessoa { padding: 24px; border-radius: var(--ag-r-lg); background: var(--ag-surface); }
+.ag .cm-pessoa-topo { display: flex; gap: 18px; align-items: center; margin-bottom: 18px; }
+.ag .cm-iniciais { flex: none; display: grid; place-items: center; width: 84px; aspect-ratio: 4 / 5; border-radius: var(--ag-r-md); background: var(--ag-panel); color: var(--ag-on-panel); font-family: var(--ag-font-serif); font-style: italic; font-size: 34px; }
+.ag .cm-pessoa-nome { font-family: var(--ag-font-display); font-size: 24px; font-weight: 600; letter-spacing: -.045em; line-height: 1.05; margin: 0 0 6px; }
+.ag .cm-pessoa-papel { margin: 0; font-size: var(--ag-small); color: var(--ag-muted); }
+.ag .cm-pessoa-bio p { margin: 0 0 .9em; font-size: var(--ag-small); color: var(--ag-muted); }
+
+/* Lista em colunas (log) */
+.ag .cm-log { list-style: none; margin: 0; padding: 0; border-top: var(--ag-hairline) solid var(--ag-line); }
+.ag .cm-log li { display: grid; grid-template-columns: 140px minmax(0, 1fr); gap: 8px 24px; padding: 16px 0; border-bottom: var(--ag-hairline) solid var(--ag-line); }
+.ag .cm-log li > span { font-family: var(--ag-font-mono); font-size: var(--ag-label); text-transform: uppercase; letter-spacing: .06em; color: var(--ag-muted); padding-top: 4px; }
+.ag .cm-log--simples li { grid-template-columns: 1fr; }
+@media (max-width: 620px) { .ag .cm-log li { grid-template-columns: 1fr; } }
+.ag .cm-citacao { max-width: 28ch; }
+.ag .cm-videos { display: grid; gap: 14px; grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr)); margin-top: 8px; padding-bottom: 8px; }
+.ag .ag-faq-a.cm-prosa { max-width: none; }
+.ag .cm-figs--3 { grid-template-columns: 1fr; }
+@media (min-width: 700px) { .ag .cm-figs--3 { grid-template-columns: repeat(2, 1fr); } }
+@media (min-width: 1100px) { .ag .cm-figs--3 { grid-template-columns: repeat(3, 1fr); } }
+.ag .cm-fig b { white-space: nowrap; }
+.ag .cm-incisos { list-style: none; padding-left: 0; }
+.ag .cm-incisos li { display: grid; grid-template-columns: 3.2em 1fr; gap: .4em; }
+.ag .cm-incisos .ag-mono { color: var(--ag-muted); padding-top: .2em; }
+/* Hero viva (AGENTIC §04): cetim que "respira" (ag-breathe, no agentic.css) + camada de partículas. */
+.ag canvas.cm-fios { position: absolute; inset: 0; width: 100%; height: 100%; display: block; pointer-events: none; }
+.ag canvas.cm-cetim { opacity: 0; transition: opacity 1.2s cubic-bezier(.7,0,.2,1); }
+.ag canvas.cm-cetim.ag-is-painted { opacity: 1; }
+
+/* Fonte: Rubik no lugar da Host Grotesk (títulos e texto). Aprovada pelo CEO em 2026-11-16 (D18). */
+:root { --ag-font-display: "Rubik", system-ui, sans-serif; --ag-font-text: "Rubik", system-ui, sans-serif; }
+.ag .ag-wordmark { --ag-len: 6.6 !important; }
+/* Logo FAETEC no rodapé (pedido do CEO, 2026-11-16). */
+.ag .cm-foot-assinatura { margin-top: clamp(36px, 4vw, 64px); }
+.ag .cm-foot-logo { display: block; width: min(100%, 620px); height: auto; }
+
+/* E-mail do rodapé em tamanho de texto (pedido do CEO, 2026-11-16). */
+.ag .ag-foot-big { font-size: clamp(19px, 1.7vw, 24px); font-weight: 600; letter-spacing: -.03em; }
+
+/* Números de destaque menores (pedido do CEO, 2026-11-16). */
+.ag .cm-fig b { font-size: clamp(36px, 4.2vw, 60px); }
+
+/* Espaçamentos verticais mais enxutos (pedido do CEO, 2026-11-16). */
+.ag .cm-sec { padding-block: clamp(48px, 5.5vw, 88px) 0; }
+.ag .cm-sec:last-of-type { padding-bottom: clamp(48px, 5.5vw, 88px); }
+.ag .ag-site-footer { padding-top: clamp(40px, 5vw, 72px); }
+
+/* Ícones das redes, juntos ao lado do botão de contato. */
+.ag .cm-contato-linha { display: flex; flex-wrap: wrap; align-items: center; gap: 20px; }
+.ag .cm-redes { display: flex; gap: 10px; list-style: none; margin: 0; padding: 0; }
+.ag .cm-redes a { display: grid; place-items: center; width: 46px; height: 46px; border-radius: 50%; border: var(--ag-hairline) solid var(--ag-line); color: var(--ag-ink); transition: background .2s, color .2s; }
+.ag .cm-redes a:hover, .ag .cm-redes a:focus-visible { background: var(--ag-accent); color: #fff; border-color: var(--ag-accent); }
+
+/* Tooltip com o nome da rede (aparece ao passar o mouse ou focar com o teclado). */
+.ag .cm-redes a { position: relative; }
+.ag .cm-redes a::after { content: attr(data-nome); position: absolute; bottom: calc(100% + 10px); left: 50%; transform: translate(-50%, 4px); padding: 6px 10px; border-radius: 8px; background: var(--ag-panel); color: var(--ag-on-panel); font-size: 13px; font-weight: 500; line-height: 1; white-space: nowrap; opacity: 0; pointer-events: none; transition: opacity .15s, transform .15s; }
+.ag .cm-redes a:hover::after, .ag .cm-redes a:focus-visible::after { opacity: 1; transform: translate(-50%, 0); }
+
+/* Nome por extenso na hero (pedido do CEO, 2026-11-16). */
+.ag .ag-hero-studio { display: block; max-width: 26ch; text-align: right; font-size: clamp(24px, 3vw, 42px); line-height: 1.08; letter-spacing: -.035em; }
+
+/* Linha do tempo: a linha horizontal passa por todas as fileiras de marcos (pedido do CEO, 2026-11-16). */
+@media (min-width: 761px) {
+  .ag .ag-steps-track { overflow-x: clip; }
+  .ag .ag-steps-track::before, .ag .ag-steps-line { display: none; }
+  .ag .ag-step::before { content: ""; position: absolute; top: 7px; left: 0; right: calc(-1 * clamp(16px, 2vw, 32px)); height: 1px; background: var(--ag-ink); }
+  .ag .ag-step-node { z-index: 1; }
+}
+
+/* Atividades permanentes (Acervo): bullet azul em cada item (pedido do CEO, 2026-11-16). */
+.ag .cm-log--simples li { grid-template-columns: 14px minmax(0, 1fr); align-items: start; gap: 0 14px; }
+.ag .cm-log--simples li::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: var(--ag-accent); margin-top: .55em; }
+
+/* Contato: caixa "Redes do CEMEF" com ícones grandes (pedido do CEO, 2026-11-16). */
+.ag .cm-siga { position: relative; overflow: hidden; border-radius: 28px; padding: clamp(28px, 4vw, 56px); color: var(--ag-on-panel);
+  background: radial-gradient(120% 90% at 0% 0%, #1b1a18 0%, var(--ag-panel) 55%), var(--ag-panel); }
+.ag .cm-siga::after { content: ""; position: absolute; right: -120px; top: -120px; width: 380px; height: 380px; border-radius: 50%;
+  background: radial-gradient(circle, color-mix(in oklab, var(--ag-accent) 55%, transparent), transparent 70%); pointer-events: none; }
+.ag .cm-siga-topo { position: relative; z-index: 1; max-width: 640px; }
+.ag .cm-siga-tag { color: var(--ag-panel-muted); margin: 0 0 16px; }
+.ag .cm-siga .ag-h2 { color: var(--ag-on-panel); margin: 0; }
+.ag .cm-siga-lede { color: var(--ag-panel-muted); margin: 16px 0 0; max-width: 46ch; }
+.ag .cm-siga-lista { position: relative; z-index: 1; list-style: none; margin: clamp(28px, 4vw, 48px) 0 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr)); gap: 12px; }
+.ag .cm-siga-item { position: relative; display: flex; flex-direction: column; gap: 6px; min-height: 220px; padding: 24px; border-radius: 20px; text-decoration: none; color: var(--ag-on-panel);
+  border: var(--ag-hairline) solid var(--ag-panel-line); background: color-mix(in oklab, var(--ag-on-panel) 5%, transparent); transition: background .25s, transform .25s, border-color .25s; }
+.ag .cm-siga-item svg { margin-bottom: auto; }
+.ag .cm-siga-nome { font-family: var(--ag-font-display); font-size: clamp(22px, 2vw, 28px); font-weight: 600; letter-spacing: -.04em; }
+.ag .cm-siga-conta { color: var(--ag-panel-muted); overflow-wrap: anywhere; }
+.ag .cm-siga-seta { position: absolute; top: 20px; right: 22px; font-size: 22px; opacity: .6; transition: transform .25s, opacity .25s; }
+.ag .cm-siga-item:hover, .ag .cm-siga-item:focus-visible { background: var(--ag-accent); border-color: var(--ag-accent); transform: translateY(-4px); }
+.ag .cm-siga-item:hover .cm-siga-conta, .ag .cm-siga-item:focus-visible .cm-siga-conta { color: #fff; }
+.ag .cm-siga-item:hover .cm-siga-seta, .ag .cm-siga-item:focus-visible .cm-siga-seta { transform: translate(3px, -3px); opacity: 1; }
+@media (prefers-reduced-motion: reduce) { .ag .cm-siga-item, .ag .cm-siga-seta { transition: none; } .ag .cm-siga-item:hover { transform: none; } }
+
+/* Contatos de cada membro da equipe. */
+.ag .cm-pessoa-links { display: flex; flex-wrap: wrap; gap: 8px 20px; margin: 18px 0 0; font-size: var(--ag-small); }
+.ag .cm-pessoas + .cm-pessoas { margin-top: 10px; }
+
+/* E-mail e Lattes com bullets (pedido do CEO, 2026-11-16). */
+.ag .cm-pessoa-links { display: block; list-style: none; margin: 18px 0 0; padding: 0; }
+.ag .cm-pessoa-links li { display: flex; align-items: baseline; gap: 12px; margin: .4em 0; }
+.ag .cm-pessoa-links li::before { content: ""; flex: none; width: 7px; height: 7px; border-radius: 50%; background: var(--ag-accent); transform: translateY(-.1em); }
+
+/* Linhas de pesquisa numeradas (pedido do CEO, 2026-11-16). */
+.ag .cm-acc-titulo { display: flex; align-items: baseline; gap: 16px; text-align: left; }
+.ag .cm-acc-num { flex: none; color: var(--ag-accent); min-width: 2ch; }
+
+/* "Como citar (ABNT)": caixa em destaque, com mais ênfase que a linha de Organização. */
+.ag .cm-ref { padding: 20px 22px 20px 24px; text-indent: 0; margin: 1.6em 0; background: var(--ag-surface); border-left: 4px solid var(--ag-accent); border-radius: 0 var(--ag-r-lg, 16px) var(--ag-r-lg, 16px) 0; color: var(--ag-ink); font-size: 1em; line-height: 1.5; }
+.ag .cm-ref::before { content: "Como citar (ABNT)"; display: block; margin-bottom: 10px; font-family: var(--ag-font-mono); font-size: var(--ag-label); font-weight: 500; letter-spacing: .06em; text-transform: uppercase; color: var(--ag-accent); }
+
+/* Publicações: deixa claro que o sumário pertence ao livro logo acima. */
+.ag .cm-sumario-rotulo { margin: 0 0 14px; color: var(--ag-accent); font-size: var(--ag-label); letter-spacing: .06em; text-transform: uppercase; }
+.ag .cm-livro-2 { border-top: var(--ag-hairline) solid var(--ag-line); padding-top: clamp(40px, 5vw, 72px); }
+
+/* Alinha à direita com a borda do "F" da sigla CEMEF (a sigla termina um pouco antes da borda do contêiner). */
+.ag .ag-hero-studio { margin-right: 1.4cqw; }

@@ -1,0 +1,52 @@
+---
+// Conservação — LACON (PRD §5). Fonte: scrapping/05-conservacao.md. Márcia e Thaysa são da equipe do CEMEF (P12).
+import Base from '../layouts/Base.astro';
+import Cabecalho from '../components/Cabecalho.astro';
+const tecnicas = [
+  { t: 'Secagem', d: 'Da secagem natural em equipamento próprio à secagem artificial com ferro de entelagem e manta de termotransferência.' },
+  { t: 'Higienização', d: 'Da higienização química com swab embebido em álcool 70º INPM à higienização mecânica em mesa com filtro de água com hipoclorito de sódio.' },
+  { t: 'Pequenos reparos', d: 'Reparos com papel japonês de 10 g e carboximetilcelulose.' },
+  { t: 'Controle do ambiente', d: 'Controle da umidade com cloreto de cálcio granulado e aparelhos desumidificadores.' },
+];
+---
+<Base titulo="Conservação" descricao="Laboratório de Conservação e Restauro de Documentos em Papel (LACON) do Centro de Memória da FAETEC.">
+  <Cabecalho tag="LACON" lede="Laboratório de Conservação e Restauro de Documentos em Papel, implantado com apoio da FAPERJ.">
+    <span class="ag-it">Conservação</span>
+  </Cabecalho>
+
+  <section class="cm-bloco ag-wrap">
+    <div class="cm-dois">
+      <h2 class="ag-h2">Preservar para <span class="ag-it">contar</span>.</h2>
+      <div class="cm-prosa">
+        <p>O Centro de Memória da FAETEC tem a proposta de desenvolver a cultura de preservação do patrimônio histórico da Rede. Além de promover pesquisa e produção científica sobre esse acervo e atuar como espaço de guarda e conservação da documentação produzida no complexo de Quintino, o CEMEF traça diretrizes gerais para o funcionamento dos centros de memória das escolas envolvidas em práticas de preservação.</p>
+        <p>O conceito de preservação reúne um amplo conjunto de medidas e estratégias administrativas e operacionais que contribuem, direta ou indiretamente, para a proteção de um patrimônio. A conservação é uma dessas medidas: pelo estudo e controle das causas de desgaste de um acervo, é possível prolongar a materialidade dos documentos.</p>
+        <p>Com apoio da Fundação Carlos Chagas Filho de Amparo à Pesquisa do Estado do Rio de Janeiro (FAPERJ), a equipe do CEMEF implementou o LACON. O laboratório permitiu dar tratamento adequado ao acervo sob sua guarda e formar multiplicadores dessa área, em oficinas, cursos do PRONATEC e no Programa Jovens Talentos de iniciação científica.</p>
+        <p>Além do próprio acervo, o LACON, pela atuação das professoras Márcia Pinheiro Ferreira e Thaysa Segal Caseli, responsáveis pelo trabalho de conservação de documentos no laboratório, também auxilia e orienta outros espaços de guarda da Rede. Um dos socorros emergenciais aconteceu no acervo central da FAETEC que, por causa de fortes chuvas, foi exposto a goteiras e alagamentos, condição propícia a agentes biológicos que colocam em risco a vida útil dos documentos.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="ag-steps ag-wrap" aria-labelledby="tec-titulo" style="padding-top:0">
+    <div class="ag-sec-head">
+      <h2 class="ag-h2" id="tec-titulo">Técnicas de <span class="ag-it">conservação</span>.</h2>
+      <p class="ag-sec-lede">Tratamentos aplicados aos suportes em papel do acervo da Rede FAETEC.</p>
+    </div>
+    <div class="ag-steps-track">
+      <span class="ag-steps-line" aria-hidden="true"></span>
+      <ol class="ag-step-list">
+        {tecnicas.map((x, i) => (
+          <li class="ag-step">
+            <span class="ag-step-node" aria-hidden="true"></span>
+            <p class="ag-step-when ag-mono">{String(i + 1).padStart(2, '0')}</p>
+            <h3 class="ag-step-title">{x.t}</h3>
+            <p class="ag-step-text">{x.d}</p>
+          </li>
+        ))}
+      </ol>
+    </div>
+  </section>
+
+  <section class="cm-bloco ag-wrap">
+    <div class="ag-about-text cm-citacao">Conservar é defender o acervo da ação dos agentes biológicos, físicos e químicos e permitir o acesso seguro aos documentos, para que suas narrativas <span class="ag-it">transcendam</span> os arquivos.</div>
+  </section>
+</Base>

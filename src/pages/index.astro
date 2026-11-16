@@ -1,0 +1,96 @@
+---
+// Início (PRD §5). Textos tirados de docs/base_conhecimento/scrapping/ (02, 03) e decisões C1–C10 (PRD §8.1).
+import Redes from '../components/Redes.astro';
+import Base from '../layouts/Base.astro';
+import { Image } from 'astro:assets';
+import logoFaetec from '../assets/faetec-logo.png';
+import { paginas } from '../nav';
+const base = import.meta.env.BASE_URL.replace(/\/?$/, '/');
+const destaques = [
+  { href: 'museu-virtual/', tag: 'Exposições', titulo: 'Museu Virtual', texto: 'Duas exposições virtuais sobre a cultura material das escolas da Rede.' },
+  { href: 'historia/', tag: 'Desde 1899', titulo: 'História', texto: 'Da Escola XV de Novembro à criação da FAETEC e do CEMEF.' },
+  { href: 'conservacao/', tag: 'LACON', titulo: 'Conservação', texto: 'Laboratório de Conservação e Restauro de Documentos em Papel.' },
+  { href: 'pesquisa/', tag: 'Grupo CNPq', titulo: 'Pesquisa', texto: 'História e memória da educação na Rede FAETEC.' },
+  { href: 'eventos/', tag: 'Seminários e colóquios', titulo: 'Eventos', texto: 'Mesas, palestras e projetos promovidos pelo CEMEF.' },
+  { href: 'centros-de-memoria/', tag: 'Rede FAETEC', titulo: 'Centros de Memória', texto: 'Orientações para os Centros de Memória das unidades de ensino.' },
+];
+---
+<Base titulo="Início">
+  <section class="ag-hero" aria-labelledby="hero-titulo">
+    <div class="ag-hero-frame" aria-hidden="true">
+      <div class="ag-hero-photo"><canvas class="cm-art cm-cetim ag-hero-base" data-seed="1899" data-ganho=".55" data-escala=".5"></canvas><canvas class="cm-fios"></canvas></div>
+      <div class="ag-hero-shade"></div>
+      <div class="ag-grain"></div>
+    </div>
+    <div class="ag-hero-inner">
+      <div class="ag-hero-top">
+        <p class="ag-wordmark" style="--ag-len:5" aria-hidden="true">CEMEF</p>
+        <p class="ag-hero-studio" id="hero-titulo">Centro de Memória da Fundação de Apoio à Escola Técnica do Estado do Rio de Janeiro <Image class="cm-logo-faetec" src={logoFaetec} alt="(FAETEC)" width={480} loading="eager" /></p>
+      </div>
+      <div class="ag-hero-marks" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+      <div class="ag-hero-bottom">
+        <h1 class="ag-hero-lede">Memória, educação e trabalho. <span>Preservamos, pesquisamos e divulgamos o acervo histórico da Rede FAETEC e das instituições que a antecederam.</span></h1>
+        <ul class="ag-hero-list">
+          <li><span>01</span>Museu Virtual</li>
+          <li><span>02</span>Conservação de acervos</li>
+          <li><span>03</span>Pesquisa histórica</li>
+          <li><span>04</span>Centros de Memória da Rede</li>
+        </ul>
+        <a class="ag-btn ag-btn--light" href={`${base}museu-virtual/`}>Visitar o Museu Virtual</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="ag-about" aria-labelledby="sobre-titulo">
+    <div class="ag-about-grid ag-wrap">
+      <figure class="ag-about-photo" aria-hidden="true"><canvas class="cm-art" data-pal="bone" data-seed="2002"></canvas></figure>
+      <div class="ag-about-copy">
+        <h2 class="ag-sr" id="sobre-titulo">Sobre o CEMEF</h2>
+        <p class="ag-about-text">O CEMEF promove a cultura de preservação do <span class="ag-it">patrimônio escolar</span> e a salvaguarda dos documentos que compõem os acervos das unidades de ensino da Rede FAETEC.</p>
+        <div class="ag-about-foot">
+          <p class="ag-about-sign">Centro de Memória da FAETEC <span>Criado pela Portaria FAETEC nº 101, de 15 de maio de 2002</span></p>
+          <a class="ag-btn" href={`${base}historia/`}>Conheça a história</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="ag-wrap" aria-labelledby="numeros-titulo">
+    <div class="ag-sec-head">
+      <h2 class="ag-h2" id="numeros-titulo">Mais de um século <span class="ag-it">de memória</span>.</h2>
+      <p class="ag-sec-lede">O campus de Quintino guarda a história da educação profissional pública do Rio de Janeiro.</p>
+    </div>
+    <div class="cm-figs">
+      <p class="cm-fig"><b>1899</b><span>Fundação da Escola XV de Novembro, origem do complexo de Quintino.</span></p>
+      <p class="cm-fig"><b>2002</b><span>Criação do Centro de Memória da FAETEC.</span></p>
+      <p class="cm-fig"><b>26</b><span>Objetos reunidos na mostra virtual “Cultura Material Escolar” (2021).</span></p>
+      <p class="cm-fig"><b>2</b><span>Exposições virtuais no Museu Virtual do CEMEF.</span></p>
+    </div>
+  </section>
+
+  <section class="cm-sec ag-wrap" aria-labelledby="secoes-titulo">
+    <div class="ag-sec-head">
+      <div><span class="ag-mono ag-sec-tag">Explore o CEMEF</span><h2 class="ag-title ag-dot" id="secoes-titulo">Nossas <span class="ag-it">seções</span></h2></div>
+      <p class="ag-sec-lede">Acervo, conservação, pesquisa e ações educativas do Centro de Memória.</p>
+    </div>
+    <div class="cm-cards">
+      {destaques.map((d) => (
+        <a class="cm-card" href={`${base}${d.href}`}>
+          <span class="ag-mono">{d.tag}</span>
+          <div><h3>{d.titulo}</h3><p>{d.texto}</p></div>
+        </a>
+      ))}
+    </div>
+  </section>
+
+  <section class="cm-sec ag-wrap" aria-labelledby="contato-titulo">
+    <div class="ag-sec-head">
+      <h2 class="ag-h2" id="contato-titulo">Pesquisa e <span class="ag-it">atendimento</span>.</h2>
+      <p class="ag-sec-lede">Fale com a equipe do CEMEF por e-mail. Atendemos pesquisadores, escolas da Rede e o público em geral.</p>
+    </div>
+    <div class="cm-contato-linha">
+      <a class="ag-btn" href={`${base}contato/`}>Entrar em contato</a>
+      <Redes />
+    </div>
+  </section>
+</Base>

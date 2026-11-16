@@ -1,0 +1,29 @@
+---
+// Museu Virtual (PRD §5). Fonte: scrapping/03-museu-virtual.md. P12: sem nomes de pessoas fora da equipe do CEMEF.
+import Base from '../../layouts/Base.astro';
+import Cabecalho from '../../components/Cabecalho.astro';
+const base = import.meta.env.BASE_URL.replace(/\/?$/, '/');
+const expos = [
+  { href: 'museu-virtual/memoria-e-trabalho/', tag: 'Exposição 02 · 20ª Semana Nacional de Museus · 2022', titulo: 'Memória e Trabalho: olhares museológicos sobre a materialidade escolar', texto: 'O maior acervo escolar histórico da formação técnico-profissional do Rio de Janeiro, reunido pelas escolas da Rede FAETEC.', pal: 'night', seed: 22 },
+  { href: 'museu-virtual/marcas-do-passado/', tag: 'Exposição 01 · 15ª Primavera dos Museus · 2021', titulo: 'Marcas do Passado na FAETEC Quintino: troféus do SAM e da FUNABEM', texto: 'Vinte e seis troféus esportivos das décadas de 1950 a 1980, resgatados do descarte e preservados como documentos.', pal: 'ember', seed: 21 },
+];
+---
+<Base titulo="Museu Virtual" descricao="Exposições virtuais do Centro de Memória da FAETEC sobre a cultura material das escolas da Rede.">
+  <Cabecalho tag="Exposições virtuais" lede="Objetos, documentos e memórias das escolas da Rede FAETEC, abertos a pesquisadores, professores, estudantes e ao público.">
+    Museu <span class="ag-it">Virtual</span>
+  </Cabecalho>
+  <section class="cm-bloco ag-wrap" aria-label="Exposições">
+    <div class="cm-expo">
+      {expos.map((e) => (
+        <a href={`${base}${e.href}`}>
+          <div class="cm-arte-box" aria-hidden="true"><canvas class="cm-art" data-pal={e.pal} data-seed={e.seed}></canvas></div>
+          <div class="cm-expo-meta">
+            <span class="ag-mono">{e.tag}</span>
+            <h2>{e.titulo}</h2>
+            <p>{e.texto}</p>
+          </div>
+        </a>
+      ))}
+    </div>
+  </section>
+</Base>

@@ -1,0 +1,18 @@
+---
+// Pesquisador(a) com retrato neutro de iniciais (P3: foto real só com autorização; até lá, iniciais).
+interface Props { nome: string; papel: string; iniciais: string; email?: string; lattes?: string; }
+const { nome, papel, iniciais, email, lattes } = Astro.props;
+---
+<article class="cm-pessoa">
+  <div class="cm-pessoa-topo">
+    <div class="cm-iniciais" aria-hidden="true">{iniciais}</div>
+    <div><h3 class="cm-pessoa-nome">{nome}</h3><p class="cm-pessoa-papel">{papel}</p></div>
+  </div>
+  <div class="cm-pessoa-bio"><slot /></div>
+  {(email || lattes) && (
+    <ul class="cm-pessoa-links">
+      {email && <li><a class="ag-link ag-link--under" href={`mailto:${email}`}>{email}</a></li>}
+      {lattes && <li><a class="ag-link ag-link--under" href={lattes} target="_blank" rel="noopener noreferrer">Currículo Lattes</a></li>}
+    </ul>
+  )}
+</article>

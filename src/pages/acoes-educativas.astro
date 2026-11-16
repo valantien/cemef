@@ -1,0 +1,41 @@
+---
+// Ações Educativas (PRD §5). Fonte: scrapping/09-acoes-educativas.md. Ordem cronológica; textos no passado (C9).
+import Base from '../layouts/Base.astro';
+import Cabecalho from '../components/Cabecalho.astro';
+const atividades = [
+  ['2012', 'Curso de Atendimento ao Público, com a palestra “A História da FAETEC”, em 8 de maio.'],
+  ['2013', 'Curso de Treinamento de Gestão de Protocolo e UPO, em 27 de maio, promovido pela Secretaria da Presidência, FOCO e CEMEF.'],
+  ['2013', 'Curso de Treinamento Gestão de Documentos, em 29 de maio, promovido pela Secretaria da Presidência, FOCO e CEMEF.'],
+  ['2013', 'Curso de Secretário Escolar, no Programa de Certificação de Competência para Habilitação de Técnico em Secretaria Escolar (SEEDUC/FAETEC), em setembro e outubro.'],
+  ['2013', 'Levantamento da Cultura Material Escolar, para identificar objetos materiais e as condições em que se encontravam.'],
+  ['2013', 'IV Workshop FAETEC, em outubro, com pesquisa e elaboração da linha do tempo da FAETEC e de seus presidentes.'],
+  ['2014–15', 'Acordo de Cooperação Técnica com o Arquivo Público do Estado do Rio de Janeiro (APERJ), de janeiro de 2014 a janeiro de 2015, para capacitar funcionários de diversos centros de memória da FAETEC em limpeza e conservação básica de acervo documental, com foco nas especificidades da documentação histórica. Pela estrutura física do APERJ, o curso foi dividido em quatro blocos e atendeu profissionais de oito unidades da Rede, formando multiplicadores das técnicas de conservação.'],
+  ['2017', 'Oficina de Gestão de Documentos, Conservação e Higienização no LACON, organizada pelo CEMEF em parceria com o CVT Quintino, em 7 de novembro. A oficina foi o projeto-piloto dos Cursos FIC de Auxiliar de Conservação de Acervos e Auxiliar de Biblioteca.'],
+  ['2017', 'Apresentação dos Planos de Curso de Auxiliar de Conservação de Acervos e Auxiliar de Biblioteca à DDE, em 29 de novembro.'],
+  ['2018', 'Workshop Programa de Gestão de Documentos para Gestores e Secretários Escolares, em 24 de setembro.'],
+  ['2018', 'Capacitação para Gestão de Documentos, em 26 e 27 de novembro, em dois módulos: treinamento para aplicação do Plano de Classificação e da Tabela de Temporalidade da FAETEC, e oficina de conservação e higienização de documentos em papel.'],
+];
+---
+<Base titulo="Ações Educativas" descricao="Oficinas, cursos e capacitações realizados pelo Centro de Memória da FAETEC.">
+  <Cabecalho tag="Oficinas e capacitações" lede="Formação de profissionais da Rede FAETEC em gestão de documentos e conservação de acervos.">
+    Ações <span class="ag-it">educativas</span>
+  </Cabecalho>
+
+  <section class="cm-bloco ag-wrap">
+    <div class="cm-dois">
+      <h2 class="ag-h2">Oficinas no <span class="ag-it">LACON</span>.</h2>
+      <div class="cm-prosa">
+        <p>No Laboratório de Conservação (LACON), o CEMEF realizou oficinas de gestão de documentos, conservação e higienização de acervos em papel. A primeira delas, em 2017, serviu de projeto-piloto para os cursos de Auxiliar de Conservação de Acervos e de Auxiliar de Biblioteca oferecidos pelo PRONATEC em 2018.</p>
+        <p><a class="cm-link" href="../conservacao/">Conheça o LACON</a></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="cm-bloco ag-wrap" aria-labelledby="hist-titulo" style="padding-top:0">
+    <div class="ag-sec-head">
+      <h2 class="ag-h2" id="hist-titulo">Principais <span class="ag-it">atividades</span>.</h2>
+      <p class="ag-sec-lede">Períodos de 2011 a 2016 e de 2017 a 2018.</p>
+    </div>
+    <ul class="cm-log">{atividades.map(([a, t]) => <li><span>{a}</span>{t}</li>)}</ul>
+  </section>
+</Base>

@@ -1,0 +1,111 @@
+---
+// Eventos (PRD §5). Fonte: scrapping/07-eventos.md. P12 via src/data/pessoas.ts. C8: datas PRONATEC no contexto.
+import Base from '../layouts/Base.astro';
+import Cabecalho from '../components/Cabecalho.astro';
+import Video from '../components/Video.astro';
+import Acordeao from '../components/Acordeao.astro';
+import { citar } from '../data/pessoas';
+type Mesa = { titulo: string; tipo: string; convidados: { nome: string; funcao: string }[]; cemef: string; videos: string[] };
+const mesas: Mesa[] = [
+  { titulo: 'Memória, Educação e Trabalho', tipo: 'Conferência de abertura', convidados: [{ nome: 'Profa. Ismênia de Lima Martins', funcao: 'professora emérita do PPG em História da UFF' }], cemef: 'Apresentação: Profa. Dra. Isabella Gaze (CEMEF)', videos: ['WYODAhCnIw0', 'qaq7_k2B2Xk'] },
+  { titulo: 'A importância da preservação da memória de instituições educativas: o caso do Centro de Memória da FAETEC', tipo: 'Mesa-redonda', convidados: [{ nome: 'Prof. Dr. José Antonio Miranda Sepúlveda', funcao: 'um dos fundadores do Centro de Memória da FAETEC' }], cemef: 'Apresentação: Profa. Dra. Isabella Gaze (CEMEF)', videos: [] },
+  { titulo: 'Memória, História Oral e Imagem', tipo: 'Mesa-redonda', convidados: [{ nome: 'Profa. Dra. Ana Maria Mauad', funcao: 'professora da UFF' }, { nome: 'Prof. Dr. Ricardo Santhiago', funcao: 'professor da UNIFESP' }], cemef: "Mediação: Luiz Carlos Ribeiro de Sant'ana (CEMEF)", videos: ['puzmD32_7W4', 'AOZyU0RLbv4'] },
+  { titulo: 'Memória e História da Educação Profissional', tipo: 'Mesa-redonda', convidados: [{ nome: 'Profa. Dra. Claudia Alves', funcao: 'professora do PPGE-UFF' }, { nome: 'Profa. Dra. Júlia Naomi Kanazawa', funcao: 'professora do CPS – Memórias São Paulo' }, { nome: 'Profa. Dra. Libânia Nacif Xavier', funcao: 'professora do PPGE-UFRJ' }, { nome: 'Profa. Dra. Maria Zélia Maia de Souza', funcao: 'professora da FACED/UFJF' }], cemef: 'Mediação: Isabella Gaze (CEMEF)', videos: [] },
+  { titulo: 'Memória, Educação e Inclusão', tipo: 'Mesa-redonda', convidados: [{ nome: 'Profa. Ma. Ana Cristina Carvalho', funcao: 'professora da FAETEC' }, { nome: 'Profa. Dra. Cristina Angélica Aquino de C. Mascaro', funcao: 'professora da UERJ' }, { nome: 'Profa. Ma. Verônica Cruz', funcao: 'professora da DESUP' }, { nome: 'Prof. Me. Marcelina França', funcao: 'mediação da DESUP' }], cemef: '', videos: ['YbXzLs_f6oo', 'A0fQfoR00i4'] },
+  { titulo: 'Memória, Educação, Racismo Institucional e Ações Afirmativas', tipo: 'Mesa-redonda', convidados: [{ nome: 'Prof. Dr. Alexandre Nascimento', funcao: 'professor convidado' }, { nome: 'Profa. Me. Lilian do Carmo', funcao: 'professora convidada' }, { nome: 'Profa. Dra. Selma Maria da Silva', funcao: 'professora convidada' }], cemef: 'Mediação: Prof. Dr. Aderaldo Pereira dos Santos (CEMEF)', videos: [] },
+  { titulo: 'Memória e História Pública', tipo: 'Mesa-redonda', convidados: [{ nome: 'Profa. Dra. Juniele Rabêlo de Almeida', funcao: 'professora da UFF' }, { nome: 'Prof. Dr. Rogério Rosa Rodrigues', funcao: 'professor convidado' }], cemef: 'Mediação: Profa. Dra. Isabella Gaze (CEMEF)', videos: ['LPGA55gpkV4', 'zxo9wZ1uc8U'] },
+  { titulo: 'Memória, Arquivos Escolares e Educação Patrimonial', tipo: 'Mesa-redonda', convidados: [{ nome: 'Profa. Dra. Priscila Ribeiro Gomes', funcao: 'mediação da UNIRIO' }, { nome: 'Profa. Me. Fernanda da Silva Rodrigues', funcao: 'professora da SEEDUC' }, { nome: 'Prof. Me. Guilherme Santos Gomes', funcao: 'professor convidado' }], cemef: 'Apresentação: Profa. Me. Thaysa Segal Caseli (CEMEF)', videos: [] },
+];
+const coloquio = [
+  ['3', 'conferências'], ['28', 'mesas-redondas'], ['17', 'minicursos e workshops'], ['137', 'comunicações orais'], ['39', 'vídeo-pôsteres'], ['+10 mil', 'pessoas assistiram no YouTube'],
+];
+const participacoes = [
+  ['2012', 'IV Encontro Norte/Nordeste de História da Educação, Universidade Tiradentes, Aracaju/SE (1º a 4 de abril), com o trabalho “Escola Visconde de Mauá: as origens da escola profissional da Vila Proletária de Marechal Hermes”.'],
+  ['2012', 'IX Congresso Luso-Brasileiro de História da Educação, Universidade de Lisboa, Portugal (12 a 15 de julho), com o trabalho “Orlando Corrêa Lopes: um anarquista na gestão da Escola Profissional Visconde de Mauá”.'],
+  ['2013', 'III Encontro de História da Educação do Estado do Rio de Janeiro (21 a 23 de novembro), com o trabalho “Centro de Memória da FAETEC (CEMEF): arquivos escolares e possibilidades de pesquisa”.'],
+  ['2014', 'VI Congresso Internacional de Pesquisa Autobiográfica, UERJ (novembro), com dois trabalhos.'],
+];
+const promovidos = [
+  ['2011', 'Encontros de Memória Institucional, 3 e 19 de outubro.'],
+  ['2014', 'I Mostra FAETEC de Cinema e Educação, de 21 a 24 de outubro, com filmes nacionais e internacionais, oficinas, mesas, debates e exposições, com apoio da Embaixada da França, do Institut Français e da Cinemateca Francesa.'],
+  ['2015', 'Lançamento do material didático “Nome que Dá Nome”, organizado pela professora doutora Ana Chrystina Venâncio Mignot (UERJ), em março.'],
+  ['—', 'Ciclo de palestras sobre memória e história da educação, em parceria com o Centro de Memória da ETE República.'],
+  ['—', 'Palestra “Arqueoastronomia: o que é isso?”, em parceria com o MAST, com lançamento de livros paradidáticos distribuídos às bibliotecas escolares pelos centros de memória.'],
+];
+---
+<Base titulo="Eventos" descricao="Seminários, colóquios, projetos e participações do Centro de Memória da FAETEC.">
+  <Cabecalho tag="Seminários, colóquios e projetos" lede="Encontros que levam a memória da educação profissional para o debate público.">
+    <span class="ag-it">Eventos</span>
+  </Cabecalho>
+
+  <section class="cm-bloco ag-wrap" aria-labelledby="sem-titulo">
+    <div class="ag-sec-head">
+      <h2 class="ag-h2" id="sem-titulo">Seminário Memória, Educação e <span class="ag-it">Trabalho</span> em Debate.</h2>
+      <p class="ag-sec-lede">Conferência de abertura e sete mesas-redondas. Quatro sessões estão gravadas no YouTube.</p>
+    </div>
+    <div class="ag-faq-list">
+      {mesas.map((m) => (
+        <Acordeao titulo={m.titulo}>
+          <p class="ag-mono">{m.tipo}</p>
+          {m.convidados.length > 0 && <p>Com {m.convidados.map(citar).join('; ')}.</p>}
+          {m.cemef && <p>{m.cemef}.</p>}
+          {m.videos.length > 0 && (
+            <div class="cm-videos">
+              {m.videos.map((v, i) => <Video id={v} titulo={`${m.titulo} (parte ${i + 1})`} seed={i + 5} />)}
+            </div>
+          )}
+        </Acordeao>
+      ))}
+    </div>
+  </section>
+
+  <section class="cm-bloco ag-wrap" aria-labelledby="col-titulo">
+    <div class="ag-sec-head">
+      <h2 class="ag-h2" id="col-titulo">I Colóquio FAETEC <span class="ag-it">Professores-Pesquisadores</span>.</h2>
+      <p class="ag-sec-lede">Saberes da educação profissional e tecnológica. 15 a 17 de junho de 2021, on-line, com apoio da FAPERJ.</p>
+    </div>
+    <div class="cm-figs cm-figs--3" style="margin-top:0">
+      {coloquio.map(([n, t]) => <p class="cm-fig"><b>{n}</b><span>{t}</span></p>)}
+    </div>
+    <div class="cm-dois" style="margin-top: clamp(40px,5vw,72px)">
+      <div></div>
+      <div class="cm-prosa">
+        <p>O evento nacional foi organizado segundo as áreas de conhecimento do CNPq: Ciências Exatas e da Terra, Ciências Biológicas, Engenharias, Ciências da Saúde, Ciências Agrárias, Ciências Sociais Aplicadas, Ciências Humanas e Linguística, Letras e Artes, cada uma coordenada por professores com pesquisas na área. Recebeu trabalhos de professores e estudantes da Rede e de outras instituições, apresentados em comunicações orais em sessões on-line abertas ao público.</p>
+        <p>Como espaço de integração entre docentes e estudantes, o colóquio ofereceu vagas para vídeo-pôsteres de graduandos em iniciação científica e de estudantes de ensino médio com projetos orientados, como os Jovens Talentos, além de espaço para o lançamento de livros. Os objetivos propostos foram plenamente atingidos: as conferências de abertura e encerramento reuniram 2.128 espectadores, e uma conferência internacional alcançou 589 pessoas, indo além do escopo nacional exigido pela FAPERJ.</p>
+        <p><strong>Coordenação geral:</strong> Centro de Memória da FAETEC — Patrícia Freitas Hinsch Frias Barbosa e Isabella Paula Gaze. <strong>Comissão organizadora:</strong> Patrícia Freitas Hinsch Frias Barbosa, Isabella Paula Gaze, Rosane Bartholazzi, Thaysa Segal Caseli e Luiz Carlos Ribeiro de Sant'ana.</p>
+        <p><a class="ag-btn" href="https://www.youtube.com/c/CENTRODEMEM%C3%93RIADAFAETEC">Canal do CEMEF no YouTube</a></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="cm-bloco ag-wrap" aria-labelledby="rua-titulo">
+    <div class="cm-dois">
+      <h2 class="ag-h2" id="rua-titulo">Se Essa Rua Fosse <span class="ag-it">Minha</span>.</h2>
+      <div class="cm-prosa">
+        <p>O projeto homenageou pessoas que contribuíram, em diferentes momentos, para a história do complexo educacional de Quintino. O objetivo era sensibilizar a comunidade escolar para a importância de preservar a memória dessa instituição, construída com sonhos, trabalho e dedicação de muitas pessoas.</p>
+        <p>A equipe percorreu todas as unidades do Campus Quintino e recolheu nomes indicados pela própria comunidade, chegando a uma lista de 16 pessoas entre alunos, funcionários, professores e diretores. Em parceria com a Divisão de Gestão de Informação (DGI), o CEMEF desenvolveu um sistema de votação on-line, amplamente divulgado, que recebeu 251.862 votos. Os familiares dos homenageados receberam os certificados no Teatro Abdias do Nascimento, em 27 de março de 2014.</p>
+        <p>A atividade deu visibilidade ao projeto de memória institucional do CEMEF, envolveu a comunidade escolar e levou o trabalho de preservação da memória para além dos muros do Campus Quintino.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="cm-bloco ag-wrap" aria-labelledby="pron-titulo">
+    <div class="cm-dois">
+      <h2 class="ag-h2" id="pron-titulo">Formatura <span class="ag-it">PRONATEC</span>.</h2>
+      <div class="cm-prosa">
+        <p>Para expandir os cursos de Formação Inicial e Continuada, a FAETEC, por sua Diretoria de Desenvolvimento Educacional (DDE), promoveu o curso presencial de Auxiliar de Biblioteca pelo Programa Nacional de Acesso ao Ensino Técnico e Emprego (PRONATEC). Elaborado pelo Centro de Memória da FAETEC para formar profissionais voltados às demandas do mercado cultural do Rio de Janeiro, o curso, de 160 horas, foi realizado de 18 de junho a 17 de setembro de 2018 no LACON e foi o primeiro do gênero oferecido por uma instituição pública e gratuita no Estado.</p>
+        <p>A formatura da primeira turma aconteceu em 16 de maio de 2019. Equipe do CEMEF: Patrícia Freitas Hinsch Frias Barbosa, Isabella Paula Gaze, Aderaldo Pereira dos Santos, Márcia Pinheiro Ferreira e Marcus Vinicius Silva Ferreira da Cunha, com professores, pedagoga, equipe administrativa e coordenação do PRONATEC da FAETEC.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="cm-bloco ag-wrap" aria-labelledby="prom-titulo">
+    <div class="ag-sec-head"><h2 class="ag-h2" id="prom-titulo">Eventos <span class="ag-it">promovidos</span>.</h2></div>
+    <ul class="cm-log">{promovidos.map(([a, t]) => <li><span>{a}</span>{t}</li>)}</ul>
+  </section>
+
+  <section class="cm-bloco ag-wrap" aria-labelledby="part-titulo">
+    <div class="ag-sec-head"><h2 class="ag-h2" id="part-titulo">Participação em <span class="ag-it">eventos</span>.</h2></div>
+    <ul class="cm-log">{participacoes.map(([a, t]) => <li><span>{a}</span>{t}</li>)}</ul>
+  </section>
+</Base>

@@ -1,0 +1,12 @@
+---
+// Item de acordeão (componente "faq" do AGENTIC). Sem JavaScript, fica aberto.
+interface Props { titulo: string; numero?: string; }
+const { titulo, numero } = Astro.props;
+---
+<div class="ag-faq-item" data-ag-acc-item>
+  <button class="ag-faq-btn" type="button" aria-expanded="false" data-ag-acc-btn>
+    <span class="cm-acc-titulo">{numero && <span class="cm-acc-num ag-mono">{numero}</span>}<span>{titulo}</span></span>
+    <span class="ag-icon-btn" aria-hidden="true"><svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.5"><path class="ag-v" d="M7 0v14"></path><path d="M0 7h14"></path></svg></span>
+  </button>
+  <div data-ag-acc-panel><div class="ag-acc-in"><div class="ag-faq-a cm-prosa"><slot /></div></div></div>
+</div>

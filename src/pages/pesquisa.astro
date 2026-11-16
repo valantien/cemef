@@ -1,0 +1,96 @@
+---
+// Pesquisa (PRD §5). Fonte: scrapping/06-pesquisa.md.
+// C2/C4: Luiz Carlos Ribeiro de Sant'ana é Coordenador Geral desde 2022; Isabella Gaze é membro do grupo.
+// C3: 4 linhas (provisório). C9: textos datados reescritos. P3: retrato neutro (iniciais).
+import Base from '../layouts/Base.astro';
+import Cabecalho from '../components/Cabecalho.astro';
+import Acordeao from '../components/Acordeao.astro';
+import Pessoa from '../components/Pessoa.astro';
+---
+<Base titulo="Pesquisa" descricao="Grupo de Pesquisa CNPq Centro de Memória da FAETEC: História e Memória da Educação na Rede FAETEC.">
+  <Cabecalho tag="Grupo de Pesquisa CNPq" lede="Centro de Memória da FAETEC: História e Memória da Educação na Rede FAETEC.">
+    <span class="ag-it">Pesquisa</span>
+  </Cabecalho>
+
+  <section class="cm-bloco ag-wrap">
+    <div class="cm-dois">
+      <h2 class="ag-h2">O <span class="ag-it">grupo</span>.</h2>
+      <div class="cm-prosa">
+        <p>O grupo está vinculado ao Centro de Memória da FAETEC, setor responsável por implementar e incentivar ações de preservação do patrimônio histórico e dos acervos das unidades educacionais. O trabalho do grupo se volta para pesquisas com fontes documentais preservadas pela própria instituição e por outros locais de guarda, como a Biblioteca Nacional, o APERJ, o AGCRJ e o Arquivo Nacional, além do uso da história oral.</p>
+        <p>Os pesquisadores estudam as escolas técnicas da Rede, as políticas educacionais que nortearam suas trajetórias e seus agentes, estabelecendo relações com o mundo do trabalho.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="ag-faq" aria-labelledby="linhas-titulo">
+    <div class="ag-faq-grid ag-wrap">
+      <div class="ag-faq-side"><h2 class="ag-h2" id="linhas-titulo">Linhas de <span class="ag-it">pesquisa</span>.</h2></div>
+      <div class="ag-faq-list">
+        <Acordeao numero="01" titulo="Educação Patrimonial e Conservação de Acervos">
+          <p>Estuda as práticas de preservação da cultura material escolar e desenvolve materiais e procedimentos para a conservação dos acervos documentais em papel.</p>
+        </Acordeao>
+        <Acordeao numero="02" titulo="História das Políticas de Educação Profissional e Tecnológica no Rio de Janeiro">
+          <p>Linha dedicada à história das políticas de educação profissional e tecnológica no Estado do Rio de Janeiro.</p>
+        </Acordeao>
+        <Acordeao numero="03" titulo="História e Memória das Instituições e Sujeitos Escolares">
+          <p>Estuda a trajetória das unidades educacionais da Rede FAETEC, observando as possibilidades de interação entre história e memória, com ênfase nos sujeitos e suas relações, nas práticas educativas, na cultura escolar e nos arquivos escolares como fonte documental.</p>
+        </Acordeao>
+        <Acordeao numero="04" titulo="Memória Institucional e Patrimônio Histórico">
+          <p>Desenvolve pesquisas sobre o percurso institucional da FAETEC por meio da coleta de registros orais dos atores educacionais, com base na história oral, no levantamento documental e no levantamento de bens materiais e imateriais da Fundação.</p>
+        </Acordeao>
+      </div>
+    </div>
+  </section>
+
+  <section class="cm-bloco ag-wrap" aria-labelledby="equipe-titulo">
+    <div class="ag-sec-head">
+      <h2 class="ag-h2" id="equipe-titulo">Equipe do <span class="ag-it">CEMEF</span>.</h2>
+      <p class="ag-sec-lede">Quem coordena e conduz o Centro de Memória da FAETEC.</p>
+    </div>
+    <div class="cm-pessoas">
+      <Pessoa nome="Luiz Carlos Ribeiro de Sant'ana" papel="Coordenador Geral do CEMEF desde 2022 · Doutor em História (UFRJ)" iniciais="LS" email="info@cemef.faetec.rj.gov.br" lattes="https://lattes.cnpq.br/0111783731444675">
+        <p>Bacharel e licenciado em História pela Universidade Federal do Rio de Janeiro (UFRJ), com especialização em História do Brasil pela Universidade Federal Fluminense (UFF). Mestre em História Social (UFRJ) e em Ensino de História (mestrado profissional) pela PUC-Rio. Doutor pelo Programa de História Comparada (IFCS/UFRJ), com bolsa sanduíche da CAPES no Departamento de Ciencias Sociales de la Actividad Física, del Deporte y del Ocio (INEF) da Universidad Politécnica de Madrid, no primeiro semestre de 2012.</p>
+        <p>Professor de História da FAETEC, com duas matrículas (1998 e 2014), e docente da ETEAB. Pesquisador dos grupos do CNPq SPORT: Laboratório de História do Esporte e do Lazer (UFRJ) e Centro de Memória da FAETEC. Tem experiência no magistério básico, na EJA, na EAD e no ensino universitário, com produção sobre História do Brasil Republicano, relações raciais, História Contemporânea, História e Cinema, cinema e ensino, história do esporte e História da Educação.</p>
+      </Pessoa>
+      <Pessoa nome="Cláudia Facuri" papel="Coordenadora de Pesquisa do CEMEF" iniciais="CF" email="lorem.ipsum@exemplo.com" lattes="https://lattes.cnpq.br/0000000000000000">
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+        <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+      </Pessoa>
+      <Pessoa nome="Krysamon Cavalcante" papel="Coordenador de Pesquisa do CEMEF · Doutorando em Ciências, Tecnologias e Inclusão (PGCTIn/UFF)" iniciais="KR" email="krysamon.cavalcante@cemef.faetec.rj.gov.br" lattes="https://lattes.cnpq.br/5084695314809486">
+        <p>Doutorando em Ciências, Tecnologias e Inclusão (PGCTIn) pela Universidade Federal Fluminense (UFF), Mestre em Diversidade e Inclusão (CMPDI/UFF) e graduado em Design Gráfico (UNESA). É professor da Fundação de Apoio à Escola Técnica do Estado do Rio de Janeiro (FAETEC), onde atua como Coordenador de Pesquisa do Centro de Memória da FAETEC (CEMEF).</p>
+        <p>Participa do Grupo de Pesquisa Núcleo de Educação Especial e Inclusiva (NEEI/UERJ), desenvolvendo pesquisas na área de inteligência artificial, cognição e metacognição, inclusão e neurodiversidade, com foco na interação humano-IA como promotora de desenvolvimento metacognitivo.</p>
+      </Pessoa>
+    </div>
+  </section>
+
+  <section class="cm-bloco ag-wrap" aria-labelledby="pesq-titulo">
+    <div class="ag-sec-head">
+      <h2 class="ag-h2" id="pesq-titulo">Pesquisadores do <span class="ag-it">grupo de pesquisa</span>.</h2>
+      <p class="ag-sec-lede">Integrantes do Grupo de Pesquisa Centro de Memória da FAETEC (CNPq), que atuam com o CEMEF.</p>
+    </div>
+    <div class="cm-pessoas">
+      <Pessoa nome="Isabella Paula Gaze" papel="Membro do grupo de pesquisa · Doutora em História (UFF)" iniciais="IG">
+        <p>Doutora em História pelo PPGH-UFF (2018), mestre em Educação pela UNIRIO (2013) e graduada em História pela UFF (1990), com aperfeiçoamento em Gestão Escolar pela FGV (2008) e especialização em Educação Profissional Integrada à Educação Básica na Modalidade de Educação de Jovens e Adultos (PROEJA) pelo IFRJ (2011).</p>
+        <p>Professora de História concursada da FAETEC desde 1998, foi responsável e autora do projeto de reativação do Centro de Memória da FAETEC (2011) e atuou na coordenação do CEMEF. Lecionou História do Processo de Escolarização e História, Infância e Família como professora substituta na Faculdade de Educação da UERJ (2013-2014).</p>
+      </Pessoa>
+      <Pessoa nome="Márcia Pinheiro Ferreira" papel="Conservadora-restauradora · Mestra em Preservação de Acervos (PPACT-MAST)" iniciais="MP">
+        <p>Mestra em Preservação de Acervos de Ciência e Tecnologia pelo PPACT-MAST. Tecnologista em Conservação de Bens Móveis do Museu Casa de Rui Barbosa (FCRB) e professora na Coordenação de Arquivo e Preservação de Documentos do Centro de Memória da FAETEC. Corresponsável pelo LACON.</p>
+        <p>Pesquisadora dos grupos Perspectivas Conceituais, Memória e Preservação em Museus-Casas (FCRB) e História e Memória da Educação na Rede FAETEC, e membro técnico do grupo Museologia e Preservação de Acervos Culturais (MAST). Afiliada titular da ABRACOR e membro regular do ICOM-CC.</p>
+      </Pessoa>
+      <Pessoa nome="Thaysa Segal Caseli" papel="Supervisora educacional · Mestra em Educação (PUC-Rio)" iniciais="TS">
+        <p>Supervisora educacional concursada da FAETEC, doutoranda em Educação pela UFRJ e mestra em Educação pela PUC-Rio, com bolsa PROEX/CAPES. Licenciada em Pedagogia pela PUC-Rio. Corresponsável pelo LACON e responsável pelo Laboratório de Conservação do Centro de Memória da ETE Ferreira Viana.</p>
+        <p>Coordena o projeto “Laboratório de Conservação de Documentos do Centro de Memória da Fundação de Apoio à Escola Técnica: desenvolvimento da cultura de preservação do patrimônio escolar” e coorienta projetos de preservação e catalogação do acervo da ETE Ferreira Viana. Atua em Educação Brasileira, História da Educação, Educação Patrimonial e Conservação Preventiva de acervos escolares.</p>
+      </Pessoa>
+    </div>
+  </section>
+
+  <section class="cm-bloco ag-wrap" aria-labelledby="proj-titulo">
+    <div class="ag-sec-head">
+      <h2 class="ag-h2" id="proj-titulo"><span class="ag-it">Projetos</span>.</h2>
+    </div>
+    <ul class="cm-log">
+      <li><span>Pesquisa</span>A Escola Quinze (FUNABEM) nos jogos estudantis promovidos pelo Jornal dos Sports na década de 1960.</li>
+      <li><span>Pesquisa</span>Projeto Jovens Talentos do CEMEF.</li>
+    </ul>
+  </section>
+</Base>

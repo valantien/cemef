@@ -1,0 +1,116 @@
+---
+// Exposição 01 (2021). Fonte: scrapping/03b e 03b1. C5 (SAM), C7 (1899), C9 (passado), P12 (nomes só da equipe do CEMEF).
+// Tour Klapty e Livro de Visitas fora da v1 (P9). Fotos e audiodescrição pós-v1 (P11).
+import Base from '../../layouts/Base.astro';
+import Cabecalho from '../../components/Cabecalho.astro';
+import Video from '../../components/Video.astro';
+import Acordeao from '../../components/Acordeao.astro';
+import SobreCemef from '../../components/SobreCemef.astro';
+---
+<Base titulo="Marcas do Passado" descricao="Mostra virtual do CEMEF na 15ª Primavera dos Museus (2021): troféus esportivos do SAM e da FUNABEM.">
+  <Cabecalho tag="Exposição 01 · 15ª Primavera dos Museus · 2021" lede="Mostra CEMEF Virtual sobre cultura material escolar: troféus de competições esportivas do SAM e da FUNABEM sob a guarda do Centro de Memória.">
+    Marcas do <span class="ag-it">Passado</span>
+  </Cabecalho>
+
+  <section class="cm-bloco ag-wrap" aria-label="Vídeo de abertura">
+    <Video id="g_9LcEmFiAQ" titulo="Abertura da Mostra Cultura Material Escolar" seed={21} />
+  </section>
+
+  <section class="cm-bloco ag-wrap" aria-label="A mostra em números">
+    <div class="cm-figs" style="margin-top:0">
+      <p class="cm-fig"><b>26</b><span>Troféus selecionados para a mostra.</span></p>
+      <p class="cm-fig"><b>1950</b><span>Década das peças mais antigas da mostra.</span></p>
+      <p class="cm-fig"><b>1980</b><span>Década das peças mais recentes.</span></p>
+    </div>
+  </section>
+
+  <section class="cm-bloco ag-wrap" aria-labelledby="apres-titulo">
+    <div class="cm-dois">
+      <h2 class="ag-h2" id="apres-titulo"><span class="ag-it">Apresentação</span>.</h2>
+      <div class="cm-prosa">
+        <p>Organizada pelo Centro de Memória da FAETEC (CEMEF), a mostra sobre cultura material escolar “Marcas do Passado na FAETEC Quintino: Troféus do SAM e da FUNABEM” apresenta troféus de competições esportivas do período do Serviço de Assistência ao Menor (1941-1964) e da Fundação Nacional do Bem-Estar do Menor (1964-1990). Os troféus fazem parte do pouco que restou do acervo de cultura material dessas instituições e são hoje fontes históricas relevantes sob a guarda do CEMEF, que permitem refletir sobre a apropriação do esporte em seus projetos de educação, suas representações e estratégias.</p>
+        <p>Compreendendo os troféus como documentos, os pesquisadores do CEMEF vêm levantando outras fontes, como fotografias, jornais da época, depoimentos orais e a Revista Brasil Jovem (1970-1971), em um trabalho de cruzamento de informações para a escrita de parte desse passado.</p>
+        <p>A mostra foi idealizada como um espaço de diálogo com o público sobre o cuidado na preservação dos objetos que formam a cultura material escolar, abrindo diferentes possibilidades para a investigação histórica. Cabe ao olhar atento e sensível do historiador perceber que um troféu pode ser um documento composto de indícios e de informações sobre a instituição e a sociedade que o conceberam.</p>
+        <p>Para a mostra foram selecionados 26 troféus das décadas de 1950 a 1980, expostos com os resultados parciais da pesquisa em desenvolvimento. Esses artefatos, que no passado simbolizavam glória e reconhecimento para sujeitos e instituições, tornaram-se obsoletos, esquecidos e apagados na construção da nova instituição educacional que nascia no bairro de Quintino Bocaiúva. Descartados, foram recuperados do lixo por acaso e preservados como documentos no Centro de Memória. Hoje contribuem para a reflexão sobre as transformações materiais e ideológicas pelas quais passou o espaço físico onde se encontra a FAETEC desde sua fundação (1996).</p>
+        <p>A mostra também pretende colaborar para a preservação da memória e a escrita da história do Campus Quintino, construído no final do século XIX para a Escola XV de Novembro (1899) e que se manteve em funcionamento ao longo do século XX, abrigando o SAM e a FUNABEM antes da criação da FAETEC.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="ag-faq" aria-labelledby="saiba-titulo">
+    <div class="ag-faq-grid ag-wrap">
+      <div class="ag-faq-side"><h2 class="ag-h2" id="saiba-titulo">Saiba <span class="ag-it">mais</span>.</h2></div>
+      <div class="ag-faq-list">
+        <Acordeao titulo="Sobre a Primavera dos Museus">
+          <p>Organizada pelo <a class="cm-link" href="https://www.museus.gov.br">Instituto Brasileiro de Museus (Ibram)</a>, a Primavera dos Museus é uma ação anual, com duração de uma semana, que mobiliza os museus brasileiros a elaborar programações especiais.</p>
+          <p>A 15ª edição, com o tema gerador “Museus: perdas e recomeços”, foi realizada de 20 a 26 de setembro de 2021 e contou com mais de 680 instituições inscritas e mais de 1.700 atividades voltadas ao público em todo o Brasil.</p>
+        </Acordeao>
+        <SobreCemef />
+        <Acordeao titulo="Créditos">
+          <dl class="cm-creditos">
+            <dt>Organização e curadoria</dt>
+            <dd>Patrícia Freitas Hinsch Frias Barbosa (Coordenadora Geral do CEMEF em 2021)</dd>
+            <dd>Isabella Paula Gaze (Coordenadora Adjunta do CEMEF em 2021)</dd>
+            <dd>Representante da Diretoria de Educação Superior (DESUP)</dd>
+            <dt>Pesquisa histórica</dt>
+            <dd>Rosane Aparecida Bartholazzi</dd>
+            <dd>Luiz Carlos Ribeiro de Sant'ana</dd>
+            <dt>Audiodescrição</dt>
+            <dd>Aderaldo Pereira dos Santos</dd>
+            <dd>Márcia Pinheiro Ferreira</dd>
+            <dt>Equipe CEMEF (2021)</dt>
+            <dd>Patrícia Freitas Hinsch Frias Barbosa, Isabella Paula Gaze, Aderaldo Pereira dos Santos, Rosane Aparecida Bartholazzi, Luiz Carlos Ribeiro de Sant'ana, Márcia Pinheiro Ferreira e Thaysa Segal Caseli</dd>
+            <dt>Agradecimentos</dt>
+            <dd>A um professor colaborador da mostra.</dd>
+          </dl>
+        </Acordeao>
+      </div>
+    </div>
+  </section>
+
+  <section class="cm-bloco ag-wrap" aria-labelledby="unidades-titulo">
+    <div class="ag-sec-head">
+      <h2 class="ag-h2" id="unidades-titulo">Os Centros de Memória das <span class="ag-it">unidades</span>.</h2>
+      <p class="ag-sec-lede">Três escolas da Rede participaram da mostra com atividades próprias.</p>
+    </div>
+    <div class="cm-cards" style="margin-top:0">
+      <article class="cm-card cm-card--texto">
+        <span class="ag-mono">ETE Ferreira Viana</span>
+        <div>
+          <h3>Do acervo centenário à divulgação</h3>
+          <p>A equipe do Centro de Memória da ETE Ferreira Viana (CEMETEFV) compartilhou as experiências de preservação da escola, fundada em 9 de agosto de 1888 como Casa de São José para instruir e abrigar crianças pobres no fim do Império. Integrado à política de preservação do CEMEF, o CEMETEFV foi criado em 2007 e, desde 2015, conta com laboratório de conservação.</p>
+        </div>
+      </article>
+      <article class="cm-card cm-card--texto">
+        <span class="ag-mono">ETE República</span>
+        <div>
+          <h3>A importância do descarte consciente</h3>
+          <p>O Centro de Memória da ETE República, em funcionamento desde 2010 em Quintino, guarda prontuários da FUNABEM (encaminhados aos poucos ao CEMEF), prontuários e fichas de estágio de alunos, fotografias e livros. Parte dos livros, um deles de 1926, foi resgatada do lixo em 1996 e registra o espaço da escola desde o tempo em que era uma fazenda.</p>
+        </div>
+      </article>
+      <article class="cm-card cm-card--texto">
+        <span class="ag-mono">ETE Santa Cruz</span>
+        <div>
+          <h3>Educação patrimonial</h3>
+          <p>Professores do Centro de Memória da ETE Santa Cruz apresentaram, em exposição oral, as atividades de educação patrimonial realizadas com os alunos dos cursos técnicos ao longo de 23 anos.</p>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section class="cm-bloco ag-wrap" aria-labelledby="acess-titulo">
+    <div class="cm-dois">
+      <h2 class="ag-h2" id="acess-titulo">Acesso para <span class="ag-it">todos</span>.</h2>
+      <div class="cm-prosa">
+        <p>Comprometida com o acesso para todos, a versão original da mostra ofereceu imagens com legendas descritivas e audiodescrição em todas as peças e itens-bônus. As imagens e os áudios das peças voltarão a ser publicados neste site em uma próxima atualização.</p>
+        <p>Este site já traz o intérprete de Libras virtual do VLibras em todas as páginas (botão no canto direito da tela). Também é possível instalar o VLibras no navegador ou no celular:</p>
+        <ul class="cm-lista">
+          <li><a class="cm-link" href="https://chrome.google.com/webstore/search/VLibras?hl=pt-BR">VLibras para Google Chrome</a></li>
+          <li><a class="cm-link" href="https://addons.mozilla.org/en-US/firefox/addon/vlibras-plugin/">VLibras para Firefox</a></li>
+          <li><a class="cm-link" href="https://play.google.com/store/apps/details?id=com.lavid.vlibrasdroid">VLibras para Android</a></li>
+          <li><a class="cm-link" href="https://apps.apple.com/br/app/vlibras/id1039641615">VLibras para iOS</a></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+</Base>

@@ -1,0 +1,14 @@
+---
+// Ícones das redes do CEMEF (links em src/nav.ts).
+import { redes } from '../nav';
+import { caminhos } from '../data/icones';
+---
+<ul class="cm-redes" aria-label="Redes do CEMEF">
+  {redes.map((r) => (
+    <li>
+      <a href={r.href} target="_blank" rel="noopener noreferrer" aria-label={`${r.nome} do CEMEF (abre em nova aba)`} data-nome={r.nome}>
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true"><path d={caminhos[r.nome]} /></svg>
+      </a>
+    </li>
+  ))}
+</ul>

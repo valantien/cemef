@@ -1,0 +1,54 @@
+---
+// Acervo (PRD §5). Fontes: scrapping/04-acervo.md e 10 (atividades permanentes e frentes de pesquisa).
+import Base from '../layouts/Base.astro';
+import Cabecalho from '../components/Cabecalho.astro';
+const permanentes = [
+  'Organização do acervo de prontuários da FUNABEM, do CBIA e do CEI, respeitando o princípio da proveniência: a documentação produzida nos diferentes períodos históricos da instituição não é separada.',
+  'Implantação da Tabela de Temporalidade e do Plano de Classificação na Rede FAETEC.',
+  'Supervisão e acompanhamento das atividades dos Centros de Memória das unidades de ensino, com reuniões periódicas.',
+  'Levantamento, na Hemeroteca Digital, de notícias da imprensa sobre as escolas e instituições extintas que foram incorporadas pela Rede FAETEC.',
+  'Séries de história oral.',
+  'Cursos de capacitação para as equipes dos Centros de Memória e para quem cuida da documentação escolar.',
+  'Atendimento a ex-alunos da FUNABEM que procuram documentação.',
+  'Atendimento ao público interessado em pesquisar o acervo documental da FAETEC, de suas unidades e das unidades extintas.',
+  'Projetos para captação de fomento e parcerias técnicas.',
+];
+const oral = ['Presidentes da FAETEC', 'Ex-funcionários da FUNABEM', 'Ex-alunos da FUNABEM', 'Egressos da FAETEC', 'Projetos escolares de sucesso'];
+const documental = ['Cronologia do Complexo de Quintino', 'Cronologia das escolas centenárias', 'Levantamento de notícias na imprensa sobre as escolas da Rede', 'Produção de artigos para livros, revistas e eventos científicos'];
+const base = import.meta.env.BASE_URL.replace(/\/?$/, '/');
+---
+<Base titulo="Acervo" descricao="Coleta, organização e pesquisa do acervo histórico do Centro de Memória da FAETEC.">
+  <Cabecalho tag="Coleta, organização e pesquisa" lede="Documentos da Escola XV de Novembro, do SAM, da FUNABEM, do CBIA, do CEI e da FAETEC, tratados segundo normas arquivísticas.">
+    O <span class="ag-it">acervo</span>
+  </Cabecalho>
+
+  <section class="cm-bloco ag-wrap">
+    <div class="cm-dois">
+      <h2 class="ag-h2">Uma rede de <span class="ag-it">referências</span>.</h2>
+      <div class="cm-prosa">
+        <p>A década de 1990 presenciou no Brasil o surgimento de instituições de preservação da memória e de arquivos escolares, resultado da crescente importância dos documentos da escola como fontes de pesquisa para historiadores da educação. As primeiras iniciativas, em São Paulo, Minas Gerais, Santa Catarina e Paraná, serviram de exemplo para pesquisadores de várias partes do país. O Centro de Memória da FAETEC tem observado e estudado essas experiências como referência para organizar seu acervo e desenvolver pesquisas.</p>
+        <p>Pelo estudo de artigos e comunicações de eventos da área, verificamos que, quanto à organização do acervo, os centros de memória da educação procuram atender às normas arquivísticas, ainda que esses pressupostos sejam diferentes para historiadores e arquivistas.</p>
+        <p>Pesquisadores que desejam consultar o acervo podem <a class="cm-link" href={`${base}contato/`}>entrar em contato com o CEMEF</a>.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="cm-bloco ag-wrap" aria-labelledby="perm-titulo">
+    <div class="ag-sec-head">
+      <h2 class="ag-h2" id="perm-titulo">Atividades <span class="ag-it">permanentes</span>.</h2>
+      <p class="ag-sec-lede">O trabalho contínuo de coleta, organização do acervo e pesquisa.</p>
+    </div>
+    <ul class="cm-log cm-log--simples">{permanentes.map((t) => <li>{t}</li>)}</ul>
+  </section>
+
+  <section class="cm-bloco ag-wrap" aria-labelledby="frentes-titulo">
+    <div class="ag-sec-head">
+      <h2 class="ag-h2" id="frentes-titulo">Frentes de <span class="ag-it">pesquisa</span>.</h2>
+      <p class="ag-sec-lede">Séries de história oral e levantamentos documentais conduzidos pelo CEMEF.</p>
+    </div>
+    <div class="cm-cards" style="margin-top:0">
+      <article class="cm-card cm-card--texto"><span class="ag-mono">História oral</span><div><h3>Séries de depoimentos</h3><ul class="cm-lista">{oral.map((t) => <li>{t}</li>)}</ul></div></article>
+      <article class="cm-card cm-card--texto"><span class="ag-mono">Pesquisa documental</span><div><h3>Levantamentos</h3><ul class="cm-lista">{documental.map((t) => <li>{t}</li>)}</ul></div></article>
+    </div>
+  </section>
+</Base>

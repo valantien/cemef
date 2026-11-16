@@ -1,0 +1,18 @@
+---
+// Página não encontrada (RF12).
+import Base from '../layouts/Base.astro';
+import Cabecalho from '../components/Cabecalho.astro';
+import { paginas } from '../nav';
+const base = import.meta.env.BASE_URL.replace(/\/?$/, '/');
+---
+<Base titulo="Página não encontrada" descricao="O endereço procurado não existe no site do Centro de Memória da FAETEC.">
+  <Cabecalho tag="Erro 404" lede="O endereço pode ter mudado ou ter sido digitado de outra forma. Os caminhos abaixo levam às seções do site.">
+    Página não <span class="ag-it">encontrada</span>
+  </Cabecalho>
+  <section class="cm-bloco ag-wrap" style="padding-top:0">
+    <ul class="cm-log cm-log--simples">
+      <li><a class="cm-link" href={base}>Início</a></li>
+      {paginas.map((p) => <li><a class="cm-link" href={base + p.href}>{p.rotulo}</a></li>)}
+    </ul>
+  </section>
+</Base>

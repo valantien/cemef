@@ -1,0 +1,94 @@
+---
+// Layout base do site do CEMEF (PRD §6 RF1, RF8; §7 acessibilidade).
+import '@fontsource/instrument-serif/400-italic.css';
+import '@fontsource/jetbrains-mono/400.css';
+import '@fontsource/jetbrains-mono/500.css';
+import '../styles/rubik.css';
+import '../styles/agentic.css';
+import '../styles/cemef.css';
+import { Image } from 'astro:assets';
+import logoFaetec from '../assets/logo-faetec.png';
+import { paginas, contato } from '../nav';
+
+interface Props { titulo: string; descricao?: string; }
+const { titulo, descricao = 'Centro de Memória da FAETEC: preservação, pesquisa e difusão da memória da educação profissional pública do Rio de Janeiro.' } = Astro.props;
+const base = import.meta.env.BASE_URL.replace(/\/?$/, '/');
+const atual = Astro.url.pathname;
+const tituloCompleto = titulo === 'Início' ? 'CEMEF · Centro de Memória da FAETEC' : `${titulo} · CEMEF`;
+---
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <script is:inline>document.documentElement.classList.add('js');</script>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{tituloCompleto}</title>
+    <meta name="description" content={descricao} />
+    <link rel="icon" href={`${base}favicon.svg`} type="image/svg+xml" />
+  </head>
+  <body class="ag">
+    <a class="cm-skip" href="#conteudo">Pular para o conteúdo</a>
+    <header class="ag-site-header">
+      <a class="ag-logo" href={base} aria-label="CEMEF, página inicial">CEMEF</a>
+      <nav class="ag-nav" id="menu-principal" aria-label="Principal">
+        <a class="ag-link" href={base} aria-current={atual === base ? 'page' : undefined}>Início</a>
+        {paginas.map((p) => (
+          <a class="ag-link" href={`${base}${p.href}`} aria-current={atual === `${base}${p.href}` ? 'page' : undefined}>
+            {p.rotulo}{!p.pronto && <span class="cm-breve">em breve</span>}
+          </a>
+        ))}
+      </nav>
+      <div class="ag-header-end">
+        <span class="ag-mono ag-header-date">Memória e Patrimônio Histórico · Rio de Janeiro</span>
+        <button class="ag-menu-btn" type="button" aria-expanded="false" aria-controls="menu-principal">
+          <span class="ag-menu-lines" aria-hidden="true"></span><span class="ag-sr">Menu</span>
+        </button>
+      </div>
+    </header>
+
+    <main id="conteudo" tabindex="-1">
+      <slot />
+    </main>
+
+    <footer class="ag-site-footer">
+      <div class="ag-foot-top ag-wrap">
+        <div class="ag-foot-col">
+          <p class="ag-foot-h ag-mono">Escreva para nós</p>
+          <a class="ag-foot-big ag-link" href={`mailto:${contato.email}`}>{contato.email}</a>
+        </div>
+        <div class="ag-foot-col">
+          <p class="ag-foot-h ag-mono">Endereço</p>
+          {contato.endereco.map((l) => <p>{l}</p>)}
+          <a class="ag-link ag-link--under" href={contato.mapa} target="_blank" rel="noopener noreferrer">Ver no mapa</a>
+        </div>
+        <nav class="ag-foot-col" aria-label="Rodapé">
+          <p class="ag-foot-h ag-mono">Páginas</p>
+          {paginas.slice(0, 5).map((p) => <a class="ag-link" href={`${base}${p.href}`}>{p.rotulo}</a>)}
+        </nav>
+        <div class="ag-foot-col">
+          <p class="ag-foot-h ag-mono">Mais</p>
+          <a class="ag-link" href={`${base}acessibilidade/`}>Acessibilidade</a>
+          <a class="ag-link" href={`${base}centros-de-memoria/`}>Centros de Memória</a>
+          <a class="ag-link" href={`${base}contato/`}>Contato</a>
+          <a class="ag-link" href="https://www.faetec.rj.gov.br/" target="_blank" rel="noopener noreferrer" aria-label="Site da FAETEC (abre em nova aba)">FAETEC ↗</a>
+        </div>
+      </div>
+      <div class="ag-wrap cm-foot-assinatura">
+        <Image class="cm-foot-logo" src={logoFaetec} alt="FAETEC, Secretaria de Ciência, Tecnologia e Inovação, Governo do Estado do Rio de Janeiro" width={1308} />
+      </div>
+      <div class="ag-foot-bottom ag-wrap">
+        <p>© {new Date().getFullYear()} Centro de Memória da FAETEC</p>
+        <p class="ag-mono">Fundação de Apoio à Escola Técnica · RJ</p>
+      </div>
+    </footer>
+
+    <!-- VLibras (RF8): widget oficial do Governo Federal -->
+    <div vw class="enabled">
+      <div vw-access-button class="active"></div>
+      <div vw-plugin-wrapper><div class="vw-plugin-top-wrapper"></div></div>
+    </div>
+    <script is:inline src="https://vlibras.gov.br/app/vlibras-plugin.js" defer></script>
+    <script is:inline>window.addEventListener('load', function () { if (window.VLibras) new window.VLibras.Widget('https://vlibras.gov.br/app'); });</script>
+    <script src="../scripts/cemef.js"></script>
+  </body>
+</html>

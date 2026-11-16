@@ -1,0 +1,12 @@
+---
+// Cabeçalho de página interna (componente "titles" do AGENTIC).
+// Regra do CEMEF: o itálico (.ag-it) sempre pega palavras inteiras.
+interface Props { tag: string; lede?: string; }
+const { tag, lede } = Astro.props;
+---
+<header class="cm-page-head ag-wrap">
+  <div class="ag-sec-head">
+    <div><span class="ag-mono ag-sec-tag">{tag}</span><h1 class="ag-title ag-dot"><slot /></h1></div>
+    {lede && <p class="ag-sec-lede">{lede}</p>}
+  </div>
+</header>

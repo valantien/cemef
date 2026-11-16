@@ -1,0 +1,33 @@
+---
+// Contato (PRD §5). Fonte: scrapping/11-contato.md. C10: o CEMEF não tem telefone.
+import Base from '../layouts/Base.astro';
+import Cabecalho from '../components/Cabecalho.astro';
+import { redes } from '../nav';
+import { caminhos } from '../data/icones';
+---
+<Base titulo="Contato" descricao="Fale com o Centro de Memória da FAETEC: e-mail e endereço no Campus Quintino.">
+  <Cabecalho tag="Fale com o CEMEF" lede="Pesquisadores, escolas da Rede e o público em geral podem escrever para a equipe do Centro de Memória.">
+    <span class="ag-it">Contato</span>
+  </Cabecalho>
+  <section class="cm-bloco ag-wrap" aria-labelledby="siga-titulo">
+    <div class="cm-siga">
+      <div class="cm-siga-topo">
+        <p class="ag-mono cm-siga-tag">Redes do CEMEF</p>
+        <h2 class="ag-h2" id="siga-titulo">Acompanhe a <span class="ag-it">memória</span> da FAETEC.</h2>
+        <p class="cm-siga-lede">Bastidores do acervo, eventos e novidades do Centro de Memória.</p>
+      </div>
+      <ul class="cm-siga-lista">
+        {redes.map((r) => (
+          <li>
+            <a class="cm-siga-item" href={r.href} target="_blank" rel="noopener noreferrer" aria-label={`${r.nome} do CEMEF (abre em nova aba)`}>
+              <svg viewBox="0 0 24 24" width="56" height="56" fill="currentColor" aria-hidden="true"><path d={caminhos[r.nome]} /></svg>
+              <span class="cm-siga-nome">{r.nome}</span>
+              <span class="cm-siga-conta ag-mono">{r.conta}</span>
+              <span class="cm-siga-seta" aria-hidden="true">↗</span>
+            </a>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+</Base>
