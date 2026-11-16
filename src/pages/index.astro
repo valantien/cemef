@@ -4,6 +4,7 @@ import Redes from '../components/Redes.astro';
 import Base from '../layouts/Base.astro';
 import { Image } from 'astro:assets';
 import logoFaetec from '../assets/faetec-logo.png';
+import campus from '../assets/campus-faetec-antiga.jpg';
 import { paginas } from '../nav';
 const base = import.meta.env.BASE_URL.replace(/\/?$/, '/');
 const destaques = [
@@ -43,7 +44,7 @@ const destaques = [
 
   <section class="ag-about" aria-labelledby="sobre-titulo">
     <div class="ag-about-grid ag-wrap">
-      <figure class="ag-about-photo" aria-hidden="true"><canvas class="cm-art" data-pal="bone" data-seed="2002"></canvas></figure>
+      <figure class="ag-about-photo cm-campus"><div class="cm-campus-img"><Image src={campus} alt="Panorâmica aérea antiga do campus de Quintino, com o prédio principal, a pista e o campo de futebol" widths={[600, 900, 1200]} sizes="(max-width: 760px) 100vw, 40vw" loading="lazy" /></div><figcaption class="cm-campus-legenda">Panorâmica do campus de Quintino (sem data)</figcaption></figure>
       <div class="ag-about-copy">
         <h2 class="ag-sr" id="sobre-titulo">Sobre o CEMEF</h2>
         <p class="ag-about-text">O CEMEF promove a cultura de preservação do <span class="ag-it">patrimônio escolar</span> e a salvaguarda dos documentos que compõem os acervos das unidades de ensino da Rede FAETEC.</p>
